@@ -151,14 +151,14 @@ registroM001.add_registro_filho(registroM100)
 registroM100.add_registro_filho(registroM105)
 
 registroM001.add_registro_filho(registroM200)
-# TODO: Registro M210 e obrigatorio ?
+# FIXME: Registro M210 e obrigatorio ?
 # Credito de COFINS relativo ao periodo.
 registroM001.add_registro_filho(registroM500)
 # Detalhamento da base de calc do credito apurado no periodo - Cofins.
 registroM500.add_registro_filho(registroM505)
 
 registroM001.add_registro_filho(registroM600)
-# TODO: Registro M610 e obrigatorio ?
+# FIXME: Registro M610 e obrigatorio ?
 
 caminho_padrao = 'efd.txt'
 caminho = raw_input('Informe o caminho em que o arquivo será gerado [{}]: '.format(caminho_padrao))

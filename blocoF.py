@@ -480,10 +480,7 @@ class RegistroF210(Registro):
 
     def __init__(self):
         self.REG_PAI = "F200"
-        # campo no. 1 deve ser o REG
         self.REG = "F210"
-        # FIXME: campo no. 2 ???
-        # FIXME: campo no. 3 ???
         self.VL_CUS_ORC = ""
         self.VL_EXC = ""
         self.VL_CUS_ORC_AJU = ""
@@ -502,8 +499,6 @@ class RegistroF210(Registro):
     def gerar_linha(self):
         linha = self.gerar_linha_de_registros((
             self.REG,
-            # FIXME: campo no. 2 ???
-            # FIXME: campo no. 3 ???
             self.VL_CUS_ORC,
             self.VL_EXC,
             self.VL_CUS_ORC_AJU,

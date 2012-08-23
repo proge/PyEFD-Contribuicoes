@@ -449,7 +449,6 @@ class RegistroM410(Registro):
         self.NAT_REC = ""
         self.VL_REC = ""
         self.COD_CTA = ""
-        # FIXME: Campo 5 nao existe ?
         self.DESC_COMPL = ""
         self.nivel = 3
         self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
@@ -462,7 +461,6 @@ class RegistroM410(Registro):
             self.NAT_REC,
             self.VL_REC,
             self.COD_CTA,
-            # FIXME: Campo 5 nao existe ?
             self.DESC_COMPL,
             ))
         return linha + super(RegistroM410, self).gerar_linha()
@@ -842,7 +840,6 @@ class RegistroM810(Registro):
         self.REG_PAI = "M800"
         self.REG = "M810"
         self.NAT_REC = ""
-        # FIXME: campo 3 ?
         self.VL_REC = ""
         self.COD_CTA = ""
         self.DESC_COMPL = ""
@@ -855,7 +852,6 @@ class RegistroM810(Registro):
         linha = self.gerar_linha_de_registros((
             self.REG,
             self.NAT_REC,
-            # FIXME: campo 3 ?
             self.VL_REC,
             self.COD_CTA,
             self.DESC_COMPL,
