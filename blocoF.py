@@ -535,6 +535,347 @@ class RegistroF211(Registro):
         return linha + super(RegistroF211, self).gerar_linha()
 
 
+'''
+Consolidação das Operações da Pessoa Jurídica Submetida ao Regime de Tributação
+com Base no Lucro Presumido - Incidência do PIS/Pasep e da Cofins pelo Regime de
+Caixa
+'''
+class RegistroF500(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "F010"
+        self.REG = "F500"
+        self.VL_REC_CAIXA = ''
+        self.CST_PIS = ''
+        self.VL_DESC_PIS = ''
+        self.VL_BC_PIS = ''
+        self.ALIQ_PIS = ''
+        self.VL_PIS = ''
+        self.CST_COFINS = ''
+        self.VL_DESC_COFINS = ''
+        self.VL_BC_COFINS = ''
+        self.ALIQ_COFINS = ''
+        self.VL_COFINS = ''
+        self.COD_MOD = ''
+        self.CFOP = ''
+        self.COD_CTA = ''
+        self.INFO_COMPL = ''
+        self.nivel = 3
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        # se em 0110 COD_INC_TRIB = 2 e IND_REG_CUM = 1
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.VL_REC_CAIXA,
+            self.CST_PIS,
+            self.VL_DESC_PIS,
+            self.VL_BC_PIS,
+            self.ALIQ_PIS,
+            self.VL_PIS,
+            self.CST_COFINS,
+            self.VL_DESC_COFINS,
+            self.VL_BC_COFINS,
+            self.ALIQ_COFINS,
+            self.VL_COFINS,
+            self.COD_MOD,
+            self.CFOP,
+            self.COD_CTA,
+            self.INFO_COMPL,
+            ))
+        return linha + super(RegistroF500, self).gerar_linha()
+
+
+'''Processo Referenciado'''
+class RegistroF509(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "F500"
+        self.REG = "F509"
+        self.NUM_PROC = ''
+        self.IND_PROC = ''
+        self.nivel = 4
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.NUM_PROC,
+            self.IND_PROC,
+            ))
+        return linha + super(RegistroF509, self).gerar_linha()
+
+
+'''
+Consolidação das Operações da Pessoa Jurídica Submetida ao Regime de Tributação
+com Base no Lucro Presumido - Incidência do PIS/Pasep e da Cofins pelo Regime de
+Caixa (Apuração da Contribuição por Unidade de Medida de Produto)
+'''
+class RegistroF510(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "F010"
+        self.REG = "F510"
+        self.VL_REC_CAIXA = ''
+        self.CST_PIS = ''
+        self.VL_DESC_PIS = ''
+        self.QUANT_BC_PIS = ''
+        self.ALIQ_PIS_QUANT = ''
+        self.VL_PIS = ''
+        self.VL_PIS = ''
+        self.VL_DESC_COFINS = ''
+        self.QUANT_BC_COFINS = ''
+        self.ALIQ_COFINS_QUANT = ''
+        self.VL_COFINS = ''
+        self.COD_MOD = ''
+        self.CFOP = ''
+        self.COD_CTA = ''
+        self.INFO_COMPL = ''
+        self.nivel = 3
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        # se em 0110 COD_INC_TRIB = 2 e IND_REG_CUM = 1
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.VL_REC_CAIXA,
+            self.CST_PIS,
+            self.VL_DESC_PIS,
+            self.QUANT_BC_PIS,
+            self.ALIQ_PIS_QUANT,
+            self.VL_PIS,
+            self.VL_PIS,
+            self.VL_DESC_COFINS,
+            self.QUANT_BC_COFINS,
+            self.ALIQ_COFINS_QUANT,
+            self.VL_COFINS,
+            self.COD_MOD,
+            self.CFOP,
+            self.COD_CTA,
+            self.INFO_COMPL,
+            ))
+        return linha + super(RegistroF510, self).gerar_linha()
+
+
+'''Processo Referenciado'''
+class RegistroF519(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "F510"
+        self.REG = "F519"
+        self.NUM_PROC = ''
+        self.IND_PROC = ''
+        self.nivel = 4
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.NUM_PROC,
+            self.IND_PROC,
+            ))
+        return linha + super(RegistroF519, self).gerar_linha()
+
+
+'''
+Composição da Receita Escriturada no Período - Detalhamento da Receita Recebida
+pelo Regime de Caixa 
+'''
+class RegistroF525(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "F010"
+        self.REG = "F525"
+        self.VL_REC = ''
+        self.IND_REC = ''
+        self.CNPJ_CPF = ''
+        self.NUM_DOC = ''
+        self.COD_ITEM = ''
+        self.VL_REC_DET = ''
+        self.CST_PIS = ''
+        self.CST_COFINS = ''
+        self.INFO_COMPL = ''
+        self.COD_CTA = ''
+        self.nivel = 3
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.VL_REC,
+            self.IND_REC,
+            self.CNPJ_CPF,
+            self.NUM_DOC,
+            self.COD_ITEM,
+            self.VL_REC_DET,
+            self.CST_PIS,
+            self.CST_COFINS,
+            self.INFO_COMPL,
+            self.COD_CTA,
+            ))
+        return linha + super(RegistroF525, self).gerar_linha()
+
+
+'''
+Consolidação das Operações da Pessoa Jurídica Submetida ao Regime de Tributação
+com Base no Lucro Presumido - Incidência do PIS/Pasep e da Cofins pelo Regime de 
+Competência
+'''
+class RegistroF550(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "F010"
+        self.REG = "F550"
+        self.VL_REC_COMP = ''
+        self.CST_PIS = ''
+        self.VL_DESC_PIS = ''
+        self.VL_BC_PIS = ''
+        self.ALIQ_PIS = ''
+        self.VL_PIS = ''
+        self.CST_COFINS = ''
+        self.VL_DESC_COFINS = ''
+        self.VL_BC_COFINS = ''
+        self.ALIQ_COFINS = ''
+        self.VL_COFINS = ''
+        self.COD_MOD = ''
+        self.CFOP = ''
+        self.COD_CTA = ''
+        self.INFO_COMPL = ''
+        self.nivel = 3
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        # se em 0110 COD_INC_TRIB = 2 e IND_REG_CUM = 2
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.VL_REC_COMP,
+            self.CST_PIS,
+            self.VL_DESC_PIS,
+            self.VL_BC_PIS,
+            self.ALIQ_PIS,
+            self.VL_PIS,
+            self.CST_COFINS,
+            self.VL_DESC_COFINS,
+            self.VL_BC_COFINS,
+            self.ALIQ_COFINS,
+            self.VL_COFINS,
+            self.COD_MOD,
+            self.CFOP,
+            self.COD_CTA,
+            self.INFO_COMPL,
+            ))
+        return linha + super(RegistroF550, self).gerar_linha()
+
+
+'''Processo Referenciado'''
+class RegistroF559(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "F550"
+        self.REG = "F559"
+        self.NUM_PROC = ''
+        self.IND_PROC = ''
+        self.nivel = 4
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.NUM_PROC,
+            self.IND_PROC,
+            ))
+        return linha + super(RegistroF559, self).gerar_linha()
+
+
+'''
+Consolidação das Operações da Pessoa Jurídica Submetida ao Regime de Tributação
+com Base no Lucro Presumido - Incidência do PIS/Pasep e da Cofins pelo Regime de
+Competência (Apuração da Contribuição por Unidade de Medida de Produto)
+'''
+class RegistroF560(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "F010"
+        self.REG = "F560"
+        self.VL_REC_COMP = ''
+        self.CST_PIS = ''
+        self.VL_DESC_PIS = ''
+        self.QUANT_BC_PIS = ''
+        self.ALIQ_PIS_QUANT = ''
+        self.VL_PIS = ''
+        self.CST_COFINS = ''
+        self.VL_DESC_COFINS = ''
+        self.QUANT_BC_COFINS = ''
+        self.ALIQ_COFINS_QUANT = ''
+        self.VL_COFINS = ''
+        self.COD_MOD = ''
+        self.CFOP = ''
+        self.COD_CTA = ''
+        self.INFO_COMPL = ''
+        self.nivel = 3
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        # se em 0110 COD_INC_TRIB = 2 e IND_REG_CUM = 2
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.VL_REC_COMP,
+            self.CST_PIS,
+            self.VL_DESC_PIS,
+            self.QUANT_BC_PIS,
+            self.ALIQ_PIS_QUANT,
+            self.VL_PIS,
+            self.CST_COFINS,
+            self.VL_DESC_COFINS,
+            self.QUANT_BC_COFINS,
+            self.ALIQ_COFINS_QUANT,
+            self.VL_COFINS,
+            self.COD_MOD,
+            self.CFOP,
+            self.COD_CTA,
+            self.INFO_COMPL,
+            ))
+        return linha + super(RegistroF560, self).gerar_linha()
+
+
+'''Processo Referenciado'''
+class RegistroF569(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "F560"
+        self.REG = "F569"
+        self.NUM_PROC = ''
+        self.IND_PROC = ''
+        self.nivel = 4
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.NUM_PROC,
+            self.IND_PROC,
+            ))
+        return linha + super(RegistroF569, self).gerar_linha()
+
+
 '''Registro F600. Contribuicao retida na fonte.'''
 class RegistroF600(Registro):
 
