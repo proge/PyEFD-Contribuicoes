@@ -284,6 +284,7 @@ class Registro0110(Registro):
             ))
         return linha + super(Registro0110, self).gerar_linha()
 
+
 '''Registro 0140. Tabela de cadastro de estabelecimento.'''
 class Registro0140(Registro):
 
@@ -316,6 +317,34 @@ class Registro0140(Registro):
             self.SUFRAMA,
             ))
         return linha + super(Registro0140, self).gerar_linha()
+
+
+'''Regime de Apuração da Contribuição Previdenciária sobre a Receita Bruta'''
+class Registro0145(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "0140"
+        self.REG = "0145"
+        self.COD_INC_TRIB = ''
+        self.VL_REC_TOT = ''
+        self.VL_REC_ATIV = ''
+        self.VL_REC_DEMAIS_ATIV = ''
+        self.INFO_COMPL = ''
+        self.nivel = 3
+        self.ocorrencia = Ocorrencia.UM_PARA_UM
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.COD_INC_TRIB,
+            self.VL_REC_TOT,
+            self.VL_REC_ATIV,
+            self.VL_REC_DEMAIS_ATIV,
+            self.INFO_COMPL,
+            ))
+        return linha + super(Registro0145, self).gerar_linha()
 
 
 '''Registro 0150. Tabela de cadastro do participante.'''
