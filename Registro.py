@@ -63,7 +63,7 @@ class Registro(object):
 
     def add_registro_filho(self, registro):
         if registro is None or self.REG != registro.REG_PAI:
-            raise Exception("Registro filho invalido !")
+            raise Exception("Registro filho inválido!")
 
         if registro in self.registros_filhos:
             return

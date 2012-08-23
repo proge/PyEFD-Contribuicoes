@@ -52,7 +52,7 @@ class RegistroP001(RegistroX001):
 class RegistroP010(Registro):
 
     def __init__(self):
-        self.REG_PAI = "0000"
+        self.REG_PAI = "P001"
         self.REG = "P010"
         self.CNPJ = ''
         self.nivel = 2
@@ -75,12 +75,19 @@ class RegistroP010(Registro):
 class RegistroP100(Registro):
 
     def __init__(self):
-        self.REG_PAI = "0000"
+        self.REG_PAI = "P010"
         self.REG = "P100"
         self.DT_INI = ''
         self.DT_FIN = ''
-        self.VL_REC_TOT_EST
-        #self.
+        self.VL_REC_TOT_EST = ''
+        self.COD_ATIV_ECON = ''
+        self.VL_REC_ATIV_ESTAB = ''
+        self.VL_EXC = ''
+        self.VL_BC_CONT = ''
+        self.ALIQ_CONT = ''
+        self.VL_CONT_APU = ''
+        self.COD_CTA = ''
+        self.INFO_COMPL = ''
         self.nivel = 3
         self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
 
@@ -92,7 +99,17 @@ class RegistroP100(Registro):
     def gerar_linha(self):
         linha = self.gerar_linha_de_registros((
             self.REG,
-            self.IND_MOV,
+            self.DT_INI,
+            self.DT_FIN,
+            self.VL_REC_TOT_EST,
+            self.COD_ATIV_ECON,
+            self.VL_REC_ATIV_ESTAB,
+            self.VL_EXC,
+            self.VL_BC_CONT,
+            self.ALIQ_CONT,
+            self.VL_CONT_APU,
+            self.COD_CTA,
+            self.INFO_COMPL,
             ))
         return linha + super(RegistroP100, self).gerar_linha()
 
@@ -103,6 +120,10 @@ class RegistroP110(Registro):
     def __init__(self):
         self.REG_PAI = "P100"
         self.REG = "P110"
+        self.NUM_CAMPO = ''
+        self.COD_DET = ''
+        self.DET_VALOR = ''
+        self.INF_COMPL = ''
         self.nivel = 4
         self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
         self.obrigatoriedade = Obrigatoriedade.OC
@@ -111,7 +132,10 @@ class RegistroP110(Registro):
     def gerar_linha(self):
         linha = self.gerar_linha_de_registros((
             self.REG,
-            self.IND_MOV,
+            self.NUM_CAMPO,
+            self.COD_DET,
+            self.DET_VALOR,
+            self.INF_COMPL,
             ))
         return linha + super(RegistroP110, self).gerar_linha()
 
@@ -120,8 +144,10 @@ class RegistroP110(Registro):
 class RegistroP199(Registro):
 
     def __init__(self):
-        self.REG_PAI = "0000"
+        self.REG_PAI = "P100"
         self.REG = "P199"
+        self.NUM_PROC = ''
+        self.IND_PROC = ''
         self.nivel = 4
         self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
         self.obrigatoriedade = Obrigatoriedade.OC
@@ -130,7 +156,8 @@ class RegistroP199(Registro):
     def gerar_linha(self):
         linha = self.gerar_linha_de_registros((
             self.REG,
-            self.IND_MOV,
+            self.NUM_PROC,
+            self.IND_PROC,
             ))
         return linha + super(RegistroP199, self).gerar_linha()
 
@@ -139,8 +166,14 @@ class RegistroP199(Registro):
 class RegistroP200(Registro):
 
     def __init__(self):
-        self.REG_PAI = "0000"
+        self.REG_PAI = "P001"
         self.REG = "P200"
+        self.PER_REF = ''
+        self.VL_TOT_CONT_APU = ''
+        self.VL_TOT_AJ_REDUC = ''
+        self.VL_TOT_AJ_ACRES = ''
+        self.VL_TOT_CONT_DEV = ''
+        self.COD_REC = ''
         self.nivel = 2
         self.ocorrencia = Ocorrencia.VARIOS
 
@@ -152,7 +185,12 @@ class RegistroP200(Registro):
     def gerar_linha(self):
         linha = self.gerar_linha_de_registros((
             self.REG,
-            self.IND_MOV,
+            self.PER_REF,
+            self.VL_TOT_CONT_APU,
+            self.VL_TOT_AJ_REDUC,
+            self.VL_TOT_AJ_ACRES,
+            self.VL_TOT_CONT_DEV,
+            self.COD_REC,
             ))
         return linha + super(RegistroP200, self).gerar_linha()
 
@@ -161,8 +199,14 @@ class RegistroP200(Registro):
 class RegistroP210(Registro):
 
     def __init__(self):
-        self.REG_PAI = "0000"
+        self.REG_PAI = "P200"
         self.REG = "P210"
+        self.IND_AJ = ''
+        self.VL_AJ = ''
+        self.COD_AJ = ''
+        self.NUM_DOC = ''
+        self.DESCR_AJ = ''
+        self.DT_REF = ''
         self.nivel = 3
         self.ocorrencia = Ocorrencia.VARIOS
         self.obrigatoriedade = Obrigatoriedade.OC
@@ -171,7 +215,12 @@ class RegistroP210(Registro):
     def gerar_linha(self):
         linha = self.gerar_linha_de_registros((
             self.REG,
-            self.IND_MOV,
+            self.IND_AJ,
+            self.VL_AJ,
+            self.COD_AJ,
+            self.NUM_DOC,
+            self.DESCR_AJ,
+            self.DT_REF,
             ))
         return linha + super(RegistroP210, self).gerar_linha()
 

@@ -23,11 +23,9 @@
 ##############################################################################
 
 from RegistroRoot import RegistroRoot
-from bloco0 import Registro0110
-from bloco0 import Registro0140
+from bloco0 import Registro0110, Registro0140
 from blocoC import RegistroC010
-from blocoM import RegistroM200
-from blocoM import RegistroM600
+from blocoM import RegistroM200, RegistroM600
 
 '''
 Tutorial passo-a-passo de como utilizar este projeto para
@@ -62,6 +60,7 @@ registroC001 = registro0000.registroC001
 registroD001 = registro0000.registroD001
 registroF001 = registro0000.registroF001
 registroM001 = registro0000.registroM001
+registroP001 = registro0000.registroP001
 registro1001 = registro0000.registro1001
 registro9001 = registro0000.registro9001
 
@@ -72,6 +71,7 @@ registroC990 = registro0000.registroC990
 registroD990 = registro0000.registroD990
 registroF990 = registro0000.registroF990
 registroM990 = registro0000.registroM990
+registroP990 = registro0000.registroP990
 registro1990 = registro0000.registro1990
 registro9990 = registro0000.registro9990
 

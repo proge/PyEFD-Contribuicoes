@@ -23,19 +23,14 @@
 
 from Registro import Registro, RegistroX001
 from RegistroX990 import RegistroX990
-from bloco1 import Registro1001
-from bloco1 import Registro1990
+from bloco1 import Registro1001, Registro1990
 from bloco9 import Registro9990
-from blocoA import RegistroA001
-from blocoA import RegistroA990
-from blocoC import RegistroC001
-from blocoC import RegistroC990
-from blocoD import RegistroD001
-from blocoD import RegistroD990
-from blocoF import RegistroF001
-from blocoF import RegistroF990
-from blocoM import RegistroM001
-from blocoM import RegistroM990
+from blocoA import RegistroA001, RegistroA990
+from blocoC import RegistroC001, RegistroC990
+from blocoD import RegistroD001, RegistroD990
+from blocoF import RegistroF001, RegistroF990
+from blocoM import RegistroM001, RegistroM990
+from blocoP import RegistroP001, RegistroP990
 from util import Ocorrencia, Obrigatoriedade
 
 '''Registro 0001. Abertura do bloco 0.'''
@@ -100,6 +95,10 @@ class Registro0000(Registro):
     # Bloco M
     registroM001 = RegistroM001()
     registroM990 = RegistroM990()
+
+    # Bloco P
+    registroP001 = RegistroP001()
+    registroP990 = RegistroP990()
 
     # Bloco 1
     registro1001 = Registro1001()
@@ -178,6 +177,9 @@ class Registro0000(Registro):
         # Bloco M
         super(Registro0000, self).add_registro_filho(self.registroM001)
         super(Registro0000, self).add_registro_filho(self.registroM990)
+        # Bloco P
+        super(Registro0000, self).add_registro_filho(self.registroP001)
+        super(Registro0000, self).add_registro_filho(self.registroP990)
         # Bloco 1
         super(Registro0000, self).add_registro_filho(self.registro1001)
         super(Registro0000, self).add_registro_filho(self.registro1990)
@@ -258,9 +260,8 @@ class Registro0100(Registro):
         return linha + super(Registro0100, self).gerar_linha()
 
 '''
- * Registro 0110. Regimes de apuracao da contribuicao social e de 
- * apropriacao de credito.
- '''
+Regimes de apuracao da contribuicao social e de apropriacao de credito.
+'''
 class Registro0110(Registro):
 
     def __init__(self):
