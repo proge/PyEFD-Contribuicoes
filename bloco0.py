@@ -259,6 +259,7 @@ class Registro0100(Registro):
             ))
         return linha + super(Registro0100, self).gerar_linha()
 
+
 '''
 Regimes de apuracao da contribuicao social e de apropriacao de credito.
 '''
@@ -283,6 +284,37 @@ class Registro0110(Registro):
             self.COD_TIPO_CONT,
             ))
         return linha + super(Registro0110, self).gerar_linha()
+
+
+'''Tabela de Receita Bruta Mensal para Fins de Rateio de Créditos Comuns'''
+class Registro0111(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "0110"
+        self.REG = "0111"
+        self.REC_BRU_NCUM_TRIB_MI = ''
+        self.REC_BRU_NCUM_NT_MI = ''
+        self.REC_BRU_NCUM_EXP = ''
+        self.REC_BRU_CUM = ''
+        self.REC_BRU_TOTAL = ''
+        self.nivel = 3
+        self.ocorrencia = Ocorrencia.UM_PARA_UM
+
+        # se em 0110 COD_INC_TRIB = 1 ou 3 e IND_APRO_CRED = 2
+        self.obrigatoriedade = Obrigatoriedade.O_SE
+
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.REC_BRU_NCUM_TRIB_MI,
+            self.REC_BRU_NCUM_NT_MI,
+            self.REC_BRU_NCUM_EXP,
+            self.REC_BRU_CUM,
+            self.REC_BRU_TOTAL,
+            ))
+        return linha + super(Registro0111, self).gerar_linha()
 
 
 '''Registro 0140. Tabela de cadastro de estabelecimento.'''
