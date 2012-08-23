@@ -720,6 +720,51 @@ class Registro1809(Registro):
         return linha + super(Registro1809, self).gerar_linha()
 
 
+'''
+Consolidação dos Documentos Emitidos por Pessoa Jurídica Submetida ao Regime de 
+Tributação com Base no Lucro Presumido - Regime de Caixa ou de Competência
+'''
+class Registro1900(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "1001"
+        self.REG = "1900"
+        self.CNPJ = ''
+        self.COD_MOD = ''
+        self.SER = ''
+        self.SUB_SER = ''
+        self.COD_SIT = ''
+        self.VL_TOT_REC = ''
+        self.QUANT_DOC = ''
+        self.CST_PIS = ''
+        self.CST_COFINS = ''
+        self.CFOP = ''
+        self.INF_COMPL = ''
+        self.COD_CTA = ''
+        self.nivel = 2
+        self.ocorrencia = Ocorrencia.VARIOS
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.CNPJ,
+            self.COD_MOD,
+            self.SER,
+            self.SUB_SER,
+            self.COD_SIT,
+            self.VL_TOT_REC,
+            self.QUANT_DOC,
+            self.CST_PIS,
+            self.CST_COFINS,
+            self.CFOP,
+            self.INF_COMPL,
+            self.COD_CTA,
+            ))
+        return linha + super(Registro1900, self).gerar_linha()
+
+
 '''Registro 1990. Encerramento do bloco 1.'''
 class Registro1990(RegistroX990):
 
