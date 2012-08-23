@@ -317,6 +317,29 @@ class Registro0111(Registro):
         return linha + super(Registro0111, self).gerar_linha()
 
 
+'''Identificação de Períodos Dispensados da Escrituração Digital'''
+class Registro0120(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "0001"
+        self.REG = "0120"
+        self.MES_DISPENSA = ''
+        self.INF_COMP = ''
+        self.nivel = 2
+        self.ocorrencia = Ocorrencia.VARIOS
+        # se mês de escrituração for dezembro
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.MES_DISPENSA,
+            self.INF_COMP,
+            ))
+        return linha + super(Registro0120, self).gerar_linha()
+
+
 '''Registro 0140. Tabela de cadastro de estabelecimento.'''
 class Registro0140(Registro):
 
