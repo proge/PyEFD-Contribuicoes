@@ -25,7 +25,7 @@ from Registro import Registro, RegistroX001
 from RegistroX990 import RegistroX990
 from util import Ocorrencia, Obrigatoriedade
 
-''' Abertura do bloco 1. '''
+''' Abertura do bloco 1'''
 class Registro1001(RegistroX001):
 
     def __init__(self):
@@ -44,7 +44,7 @@ class Registro1001(RegistroX001):
             ))
         return linha + super(Registro1001, self).gerar_linha()
 
-'''Processo referenciado - Acao judicial.'''
+'''Processo referenciado - Ação judicial'''
 class Registro1010(Registro):
 
     def __init__(self):
@@ -74,7 +74,7 @@ class Registro1010(Registro):
         return linha + super(Registro1010, self).gerar_linha()
 
 
-'''Processo referenciado - Processo administrativo.'''
+'''Processo referenciado - Processo administrativo'''
 class Registro1020(Registro):
 
     def __init__(self):
@@ -98,7 +98,7 @@ class Registro1020(Registro):
         return linha + super(Registro1020, self).gerar_linha()
 
 
-'''Registro 1100. Controle de creditos fiscais - PIS/PASEP'''
+'''Controle de créditos fiscais - PIS/PASEP'''
 class Registro1100(Registro):
 
     def __init__(self):
@@ -150,7 +150,7 @@ class Registro1100(Registro):
         return linha + super(Registro1100, self).gerar_linha()
 
 '''
-Apuracao de credito extemporaneo - Documentos e operacoes de periodos
+Apuração de crédito extemporâneo - Documentos e operações de periodos
 anteriores - PIS/PASEP.
 '''
 class Registro1101(Registro):
@@ -214,9 +214,8 @@ class Registro1101(Registro):
 
 
 '''
-Registro 1102. 
-Detalhamento do credito extemporaneo vinculado a mais de um tipo 
-de receita - PIS/PASEP.
+Detalhamento do crédito extemporâneo vinculado a mais de um tipo de receita - 
+PIS/PASEP
 '''
 class Registro1102(Registro):
 
@@ -242,7 +241,7 @@ class Registro1102(Registro):
         return linha + super(Registro1102, self).gerar_linha()
 
 
-'''Registro 1200. Contribuicao social extemporanea - PIS/PASEP.'''
+'''Contribuição social extemporânea - PIS/PASEP'''
 class Registro1200(Registro):
 
     def __init__(self):
@@ -280,10 +279,7 @@ class Registro1200(Registro):
         return linha + super(Registro1200, self).gerar_linha()
 
 
-'''
-Registro 1210.
-Detalhamento da contribuicao social extemporanea - PIS/PASEP.
-'''
+'''Detalhamento da contribuição social extemporânea - PIS/PASEP'''
 class Registro1210(Registro):
 
     def __init__(self):
@@ -322,8 +318,7 @@ class Registro1210(Registro):
 
 
 '''
-Registro 1220. 
-Demonstracao do credito a descontar da contribuicao extemporanea - PIS/PASEP.
+Demonstração do crédito a descontar da contribuição extemporânea - PIS/PASEP
 '''
 class Registro1220(Registro):
 
@@ -350,7 +345,7 @@ class Registro1220(Registro):
         return linha + super(Registro1220, self).gerar_linha()
 
 
-'''Registro 1300. Controle dos valores retidos na fonte - PIS/PASEP.'''
+'''Controle dos valores retidos na fonte - PIS/PASEP'''
 class Registro1300(Registro):
 
     def __init__(self):
@@ -382,7 +377,7 @@ class Registro1300(Registro):
         return linha + super(Registro1300, self).gerar_linha()
 
 
-'''Registro 1500. Controle de creditos fiscais - Cofins.'''
+'''Controle de créditos fiscais - Cofins'''
 class Registro1500(Registro):
 
     def __init__(self):
@@ -435,9 +430,8 @@ class Registro1500(Registro):
 
 
 '''
-Registro 1501. 
-Apuracao de credito extemporaneo - Documentos e operacoes de periodos
-anteriores - Cofins.
+Apuração de crédito extemporâneo - Documentos e operações de periodos anteriores
+Cofins
 '''
 class Registro1501(Registro):
 
@@ -500,9 +494,8 @@ class Registro1501(Registro):
 
 
 '''
-Registro 1502. 
-Detalhamento do credito extemporaneo vinculado a mais de um tipo de 
-receita - Cofins.
+Detalhamento do crédito extemporâneo vinculado a mais de um tipo de receita - 
+Cofins
 '''
 class Registro1502(Registro):
 
@@ -528,7 +521,7 @@ class Registro1502(Registro):
         return linha + super(Registro1502, self).gerar_linha()
 
 
-'''Registro 1600. Contribuicao social extemporanea - Cofins.'''
+'''Contribuição social extemporânea - Cofins'''
 class Registro1600(Registro):
 
     def __init__(self):
@@ -566,7 +559,7 @@ class Registro1600(Registro):
         return linha + super(Registro1600, self).gerar_linha()
 
 
-'''Registro 1610. Detalhamento da contribuicao social extemporanea - Cofins.'''
+'''Detalhamento da contribuição social extemporânea - Cofins'''
 class Registro1610(Registro):
 
     def __init__(self):
@@ -604,8 +597,7 @@ class Registro1610(Registro):
 
 
 '''
-Registro 1620. 
-Demonstracao do credito a descontar da contribuicao extemporanea - Cofins.
+Demonstração do crédito a descontar da contribuição extemporânea - Cofins
 '''
 class Registro1620(Registro):
 
@@ -632,7 +624,7 @@ class Registro1620(Registro):
         return linha + super(Registro1620, self).gerar_linha()
 
 
-'''Registro 1700. Controle dos valores retidos na fonte - Cofins.'''
+'''Controle dos valores retidos na fonte - Cofins'''
 class Registro1700(Registro):
 
     def __init__(self):
@@ -664,7 +656,7 @@ class Registro1700(Registro):
         return linha + super(Registro1700, self).gerar_linha()
 
 
-'''Registro 1800. Incorporacao imobiliaria - RET.'''
+'''Incorporação imobiliária - RET'''
 class Registro1800(Registro):
 
     def __init__(self):
@@ -698,7 +690,7 @@ class Registro1800(Registro):
         return linha + super(Registro1800, self).gerar_linha()
 
 
-'''Registro 1809. Processo referenciado.'''
+'''Processo referenciado'''
 class Registro1809(Registro):
 
     def __init__(self):
@@ -765,7 +757,7 @@ class Registro1900(Registro):
         return linha + super(Registro1900, self).gerar_linha()
 
 
-'''Registro 1990. Encerramento do bloco 1.'''
+'''Encerramento do bloco 1'''
 class Registro1990(RegistroX990):
 
     def __init__(self):

@@ -25,8 +25,8 @@ from util import Ocorrencia
 from Registro import Registro
 
 '''
-Classe abstrata para Registros X990 do layout EFD-PIS/COFINS.
-Representa o encerramento do bloco X, sendo X igual a 0, A, C, D, F, M, 1 ou 9.
+Classe para Registros X990 do layout EFD-PIS/COFINS. Representa o encerramento 
+do bloco X, sendo X igual a 0, A, C, D, F, M, P, 1 ou 9.
 '''
 class RegistroX990(Registro):
 

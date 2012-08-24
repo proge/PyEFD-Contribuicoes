@@ -27,11 +27,11 @@ from bloco9 import Registro9999
 from util import Obrigatoriedade
 
 '''
-Registro root e o registro inicial em que sao armazedos os registros 
-iniciais de nivel 0, ou seja, os registros 0000 e 9999.
+Registro root e o registro inicial em que são armazedos os registros iniciais de
+nível 0, ou seja, os registros 0000 e 9999.
 
-Para o programador, e o ponto de partida e atraves deste objeto
-e possivel adicionar os demais registros e gerar o arquivo EFD-PIS/Cofins.
+Para o programador é o ponto de partida e através deste objeto é possível
+adicionar os demais registros e gerar o arquivo EFD-PIS/Cofins.
 
 Exemplo:
 

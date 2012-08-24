@@ -26,7 +26,7 @@ from RegistroX990 import RegistroX990
 from bloco9 import Registro
 from util import Ocorrencia, Obrigatoriedade
 
-'''Registro D001. Abertura do bloco D.'''
+'''Abertura do bloco D'''
 class RegistroD001(RegistroX001):
 
     def __init__(self):
@@ -43,8 +43,7 @@ class RegistroD001(RegistroX001):
         return linha + super(RegistroD001, self).gerar_linha()
 
 
-'''Registro D010. Identificacao do estabelecimento.@since 1.00.00 (15/03/2011 14:18)
- '''
+'''Identificação do estabelecimento'''
 class RegistroD010(Registro):
 
     def __init__(self):
@@ -62,13 +61,9 @@ class RegistroD010(Registro):
 
 
 '''
-Registro D100. Aquisiscao de servicos de transporte - Nota fiscal de servico de 
-transporte(codigo 07) e conhecimentos de transporte rodoviario de cargas (codigo
-08),Conhecimento de transporte de cargas avulso (codigo 8B), aquaviario de 
-cargas (codigo 09), aereo (codigo 10), ferroviario de cargas (codigo 11), 
-multimodal de cargas (codigo 26), nota fiscal de transporte ferroviario decarga
-(codigo 27) e conhecimento de transporte eletronico - CT-e (codigo 57).
- '''
+Aquisição de Serviços de Transportes (Códigos 07, 08, 8B, 09, 10, 11, 26, 27 e 
+57)
+'''
 class RegistroD100(Registro):
 
     def __init__(self):
@@ -131,8 +126,8 @@ class RegistroD100(Registro):
 
 
 '''
-Registro D101. Complemento do documento de transporte (Codigos 07, 08, 8B, 09, 
-10, 11, 26, 27 e 57) - PIS/PASEP.
+Complemento do documento de transporte (Códigos 07, 08, 8B, 09, 10, 11, 26, 27
+e 57) - PIS/PASEP
 '''
 class RegistroD101(Registro):
 
@@ -168,8 +163,8 @@ class RegistroD101(Registro):
 
 
 '''
-Registro D105. Complemento do documento de transporte (Codigos 07, 08, 8B, 09,
-10, 11, 26, 27 e 57) - Cofins.
+Complemento do documento de transporte (códigos 07, 08, 8B, 09, 10, 11, 26, 27
+e 57) - Cofins
 '''
 class RegistroD105(Registro):
 
@@ -204,7 +199,7 @@ class RegistroD105(Registro):
         return linha + super(RegistroD105, self).gerar_linha()
 
 
-'''Registro D111. Processo referenciado.'''
+'''Processo referenciado'''
 class RegistroD111(Registro):
 
     def __init__(self):
@@ -227,11 +222,8 @@ class RegistroD111(Registro):
 
 
 '''
-Registro D200. Resumo da escritura diaria - prestacao de servicos de transporte
-Notafiscal de servico de transporte (codigo 07) e conhecimentos de transporte
-rodoviario de cargas (codigo 08), Conhecimento de transporte de cargas avulso
-(codigo 8B), aquaviario de cargas (codigo 09), aereo (codigo 10), ferroviario de
-carga (codigo 27) e conhecimento de tranporte eletronico - CT-e (codigo 57).
+Resumo da Escrituração Diária - Prestação de Serviços de Transportes (Códigos 
+07, 08, 8B, 09, 10, 11, 26, 27 e 57)
 '''
 class RegistroD200(Registro):
 
@@ -268,7 +260,7 @@ class RegistroD200(Registro):
         return linha + super(RegistroD200, self).gerar_linha()
 
 
-'''Registro D201. Totalizacao do resumo diario - PIS/PASEP.'''
+'''Totalização do resumo diário - PIS/PASEP'''
 class RegistroD201(Registro):
 
     def __init__(self):
@@ -298,7 +290,7 @@ class RegistroD201(Registro):
         return linha + super(RegistroD201, self).gerar_linha()
 
 
-'''Registro D205. Totalizacao do resumo diario - Cofins.'''
+'''Totalização do resumo diário - Cofins'''
 class RegistroD205(Registro):
 
     def __init__(self):
@@ -328,7 +320,7 @@ class RegistroD205(Registro):
         return linha + super(RegistroD205, self).gerar_linha()
 
 
-'''Registro D209. Processo referenciado.'''
+'''Processo referenciado'''
 class RegistroD209(Registro):
 
     def __init__(self):
@@ -351,9 +343,9 @@ class RegistroD209(Registro):
 
 
 '''
-Registro D300. Resumo da escrituracao diaria - Bilhetes consolidados de passagem
-rodoviario (codigo 13), de passagem aquaviario (codigo 14), de passagem e nota
-de bagagem (codigo 15) e de passagem ferroviario (codigo 16).
+Resumo da escrituração diária - Bilhetes consolidados de passagem rodoviário
+(código 13), de passagem aquaviário (código 14), de passagem e nota de bagagem
+(código 15) e de passagem ferroviário (código 16)
 '''
 class RegistroD300(Registro):
 
@@ -408,8 +400,7 @@ class RegistroD300(Registro):
         return linha + super(RegistroD300, self).gerar_linha()
 
 
-'''Registro D309. Processo referenciado.@since 1.00.00 (21/03/2011 11:04)
- '''
+'''Processo referenciado'''
 class RegistroD309(Registro):
 
     def __init__(self):
@@ -432,8 +423,7 @@ class RegistroD309(Registro):
 
 
 '''
-Registro D350. Resumo diario de cupom fiscal emitido por ECF - (codigos 2E, 13, 
-14, 15, e 16).
+Resumo diário de cupom fiscal emitido por ECF - (códigos 2E, 13, 14, 15, e 16)
 '''
 class RegistroD350(Registro):
 
@@ -496,7 +486,7 @@ class RegistroD350(Registro):
         return linha + super(RegistroD350, self).gerar_linha()
 
 
-'''Registro D359. Processo referenciado.'''
+'''Processo referenciado'''
 class RegistroD359(Registro):
 
     def __init__(self):
@@ -518,12 +508,9 @@ class RegistroD359(Registro):
         return linha + super(RegistroD359, self).gerar_linha()
 
 
-
-
 '''
-Registro D500Nota fiscal de servico de comunicacao (codigo 21) e nota fiscal de
-servico de telecomunicacao (codigo 22) - documentos de aquisicao com direito a
-credito.
+Nota fiscal de serviço de comunicação (código 21) e nota fiscal de serviço de
+telecomunicação (código 22) - documentos de aquisicao com direito a crédito.
 '''
 class RegistroD500(Registro):
 
@@ -585,7 +572,7 @@ class RegistroD500(Registro):
 
 
 
-'''Registro D501Complemento da operacao (codigos 21 e 22) - PIS/PASEP.'''
+'''Complemento da operação (códigos 21 e 22) - PIS/PASEP'''
 class RegistroD501(Registro):
 
     def __init__(self):
@@ -617,7 +604,7 @@ class RegistroD501(Registro):
         return linha + super(RegistroD501, self).gerar_linha()
 
 
-'''Registro D505. Complemento da operacao (codigos 21 e 22) - Cofins'''
+'''Complemento da operação (códigos 21 e 22) - Cofins'''
 class RegistroD505(Registro):
 
     def __init__(self):
@@ -649,7 +636,7 @@ class RegistroD505(Registro):
         return linha + super(RegistroD505, self).gerar_linha()
 
 
-'''Registro D509.Processo referenciado.'''
+'''Processo referenciado'''
 class RegistroD509(Registro):
 
     def __init__(self):
@@ -672,8 +659,8 @@ class RegistroD509(Registro):
 
 
 '''
-Registro D600. Consolidacao da prestacao de servicos - Notas de servico de
-comunicacao(codigo 21) e de servico de telecomunicacao (codigo 22).
+Consolidação da prestação de serviços - Notas de serviço de comunicação (código
+21) e de serviço de telecomunicação (código 22)
 '''
 class RegistroD600(Registro):
 
@@ -729,8 +716,8 @@ class RegistroD600(Registro):
 
 
 '''
-Registro D601. Complemento da consolidacao da prestacao de servicos (codigos 21
-e 22) - PIS/PASEP.
+Complemento da consolidação da prestação de serviços (códigos 21 e 22)
+PIS/PASEP
 '''
 class RegistroD601(Registro):
 
@@ -766,8 +753,7 @@ class RegistroD601(Registro):
 
 
 '''
-Registro D605. Complemento da consolidacao da prestacao de servicos (codigos 21
-e 22) - Cofins.
+Complemento da consolidação da prestação de serviços (códigos 21 e 22) - Cofins
 '''
 class RegistroD605(Registro):
 
@@ -802,7 +788,7 @@ class RegistroD605(Registro):
         return linha + super(RegistroD605, self).gerar_linha()
 
 
-'''Registro D609.Processo referenciado.'''
+'''Processo referenciado'''
 class RegistroD609(Registro):
 
     def __init__(self):
@@ -824,7 +810,7 @@ class RegistroD609(Registro):
         return linha + super(RegistroD609, self).gerar_linha()
 
 
-'''Registro D990.Encerramento do bloco D.'''
+'''Encerramento do bloco D'''
 class RegistroD990(RegistroX990):
 
     def __init__(self):

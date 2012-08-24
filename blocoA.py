@@ -25,7 +25,7 @@ from Registro import RegistroX001, Registro
 from RegistroX990 import RegistroX990
 from util import Ocorrencia, Obrigatoriedade
 
-'''Registro A001. Abertura do bloco A.'''
+'''Abertura do bloco A'''
 class RegistroA001(RegistroX001):
 
     def __init__(self):
@@ -46,7 +46,7 @@ class RegistroA001(RegistroX001):
 
 
 
-'''Registro A010. Identificacao do estabelecimento.'''
+'''Identificação do estabelecimento'''
 class RegistroA010(Registro):
 
     def __init__(self):
@@ -66,7 +66,7 @@ class RegistroA010(Registro):
         return linha + super(RegistroA010, self).gerar_linha()
 
 
-'''Registro A100. Documento - nota fiscal de servico.'''
+'''Documento - nota fiscal de serviço'''
 class RegistroA100(Registro):
 
     def __init__(self):
@@ -124,13 +124,7 @@ class RegistroA100(Registro):
         return linha + super(RegistroA100, self).gerar_linha()
 
 
-'''
- * Registro A110. 
- * Complemento do documento - informacao complementar da NF.
- * 
- * @author Leonardo Ono (ono.leo@gmail.com)
- * @since 1.00.00 (13/03/2011 20:31)
- '''
+'''Complemento do documento - informação complementar da NF'''
 class RegistroA110(Registro):
 
     def __init__(self):
@@ -152,12 +146,7 @@ class RegistroA110(Registro):
         return linha + super(RegistroA110, self).gerar_linha()
 
 
-
-
-'''
- * Registro A111. 
- * Processo referenciado.
- '''
+'''Processo referenciado'''
 class RegistroA111(Registro):
 
     def __init__(self):
@@ -179,12 +168,7 @@ class RegistroA111(Registro):
         return linha + super(RegistroA111, self).gerar_linha()
 
 
-
-
-'''
- * Registro A120. 
- * Informacao complementar - operacoes de importacao.
- '''
+'''Informação complementar - operações de importação'''
 class RegistroA120(Registro):
 
     def __init__(self):
@@ -218,9 +202,7 @@ class RegistroA120(Registro):
         return linha + super(RegistroA120, self).gerar_linha()
 
 
-
-
-'''Registro A170. Complemento do documento - itens do documento.'''
+'''Complemento do documento - itens do documento'''
 class RegistroA170(Registro):
 
     def __init__(self):
@@ -272,7 +254,7 @@ class RegistroA170(Registro):
         return linha + super(RegistroA170, self).gerar_linha()
 
 
-'''Registro A990. Encerramento do bloco A.'''
+'''Encerramento do bloco A'''
 class RegistroA990(RegistroX990):
 
     def __init__(self):
@@ -290,6 +272,4 @@ class RegistroA990(RegistroX990):
             self.QTD_LIN,
             ))
         return linha + super(RegistroA990, self).gerar_linha()
-
-
 

@@ -28,29 +28,28 @@ from blocoC import RegistroC010
 from blocoM import RegistroM200, RegistroM600
 
 '''
-Tutorial passo-a-passo de como utilizar este projeto para
-geracao do arquivo EFD-PIS/Cofins.
+Tutorial passo-a-passo de como utilizar este projeto para geracao do arquivo
+EFD-PIS/Cofins.
 
-Ao executar, o codigo desta classe ira gerar um arquivo EFD-PIS/Cofins 
-de exemplo simples que pelo menos passa no validador PVA versao 1.0.0 Beta.
+Ao executar, o código desta classe ira gerar um arquivo EFD-PIS/Cofins de 
+exemplo simples que passa no validador PVA versao 1.0.0 Beta.
 '''
 registroRoot = RegistroRoot()
 
 
 '''
-Ao instanciar um novo RegistroRoot, os registros de nível 0,
-ou seja, os registros 0000 e 9999 tambem ja sao criados e 
-adicionados automaticamente e podem ser acessados através 
-do código abaixo:
+Ao instanciar um novo RegistroRoot, os registros de nível 0, ou seja, os
+registros 0000 e 9999 tambem ja sao criados e adicionados automaticamente e
+podem ser acessados através do código abaixo:
 '''
 registro0000 = registroRoot.registro0000
 registro9999 = registroRoot.registro9999
 
 '''
-Ao instanciar um novo RegistroRoot, os registros de nível 1,
-ou seja, os registros de abertura e encerramento de bloco
-tambem já são criados e adicionados automaticamente 
-no registro 0000 e podem ser acessados conforme código abaixo:
+Ao instanciar um novo RegistroRoot, os registros de nível 1, ou seja, os
+registros de abertura e encerramento de bloco tambem já são criados e
+adicionados automaticamente no registro 0000 e podem ser acessados conforme 
+código abaixo:
 '''
 
 # Registros de abertura de bloco
@@ -76,28 +75,25 @@ registro1990 = registro0000.registro1990
 registro9990 = registro0000.registro9990
 
 '''
-Apartir disso, os demais registros de nivel maior ou igual a 2
-devem ser criados e adicionados manualmente no seu respectivo
-registro PAI.
+Apartir disso, os demais registros de nivel maior ou igual a 2 devem ser criados
+e adicionados manualmente no seu respectivo registro PAI.
 
-Exemplo: o código abaixo cria o registro 0110 (regime de apuração)
-         e adiciona ao registro 0001 (que é o registro PAI de 0110).
+Exemplo: Cria o registro 0110 (regime de apuração) e adiciona ao registro 0001
+(que é o registro PAI de 0110).
 '''
 registro0110 = Registro0110()
 registro0001.add_registro_filho(registro0110)
 
 '''
-o código abaixo cria o registro 0140 (tabela de cadastro de 
-estabelecimento) e adiciona ao registro 0001 (que é o registro
-PAI de 0140).
+Cria o registro 0140 (tabela de cadastro de estabelecimento) e adiciona ao
+registro 0001 (que é o registro PAI de 0140).
 '''
 registro0140 = Registro0140()
 registro0001.add_registro_filho(registro0140)
 
 '''
-o código abaixo cria o registro C010 (identificacao do 
-estabelecimento) e adiciona ao registro C001 (que é o registro
-PAI de C010).
+Cria o registro C010 (identificação do estabelecimento) e adiciona ao registro
+C001 (que é o registro PAI de C010).
 '''
 registroC010 = RegistroC010()
 registroC010.CNPJ = "22222222000191"
@@ -106,25 +102,22 @@ registroC010.IND_ESCRI = "2"
 registroC001.add_registro_filho(registroC010)
 
 '''
-o código abaixo cria o registro M200 (consolidação da contribuição
-PIS/PASEP do período) e adiciona ao registro M001 (que é o registro
-PAI de M200).
+Cria o registro M200 (consolidação da contribuição PIS/PASEP do período) e
+adiciona ao registro M001 (que é o registro PAI de M200).
 '''
 registroM200 = RegistroM200()
 registroM001.add_registro_filho(registroM200)
 
 '''
-o código abaixo cria o registro M600 (consolidação da contribuicao
-Cofins do periodo) e adiciona ao registro M001 (que é o registro
-PAI de M600).
+Cria o registro M600 (consolidação da contribuicao Cofins do período) e adiciona
+ao registro M001 (que é o registro PAI de M600).
 '''
 registroM600 = RegistroM600()
 registroM001.add_registro_filho(registroM600)
 
 '''
-Depois que todos os registros de seu interesse foram
-adicionados, basta utilizar o método gerar() da classe RegistroRoot
-conforme código abaixo:
+Depois que todos os registros de seu interesse foram adicionados, basta utilizar
+o método gerar() da classe RegistroRoot conforme código abaixo:
 '''
 registroRoot.gerar("teste_efd_pis_cofins.txt")
 

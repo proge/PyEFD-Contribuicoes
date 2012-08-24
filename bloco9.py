@@ -25,7 +25,7 @@ from Registro import Registro, RegistroX001
 from RegistroX990 import RegistroX990
 from util import Ocorrencia, Obrigatoriedade
 
-'''Registro 9001. Abertura do bloco 9.'''
+'''Abertura do bloco 9'''
 class Registro9001(RegistroX001):
 
     def __init__(self):
@@ -47,8 +47,7 @@ class Registro9001(RegistroX001):
 Registro.registro9001 = Registro9001()
 
 
-
-'''Registro 9900. Registros do arquivo.'''
+'''Registros do arquivo'''
 class Registro9900(Registro):
 
     def __init__(self, REG_BLC='XXXX'):
@@ -74,7 +73,7 @@ class Registro9900(Registro):
         return linha + super(Registro9900, self).gerar_linha()
 
 
-'''Registro 9990. Encerramento do bloco 9.'''
+'''Encerramento do bloco 9'''
 class Registro9990(RegistroX990):
 
     def __init__(self):
@@ -93,7 +92,7 @@ class Registro9990(RegistroX990):
         return linha + super(Registro9990, self).gerar_linha()
 
 
-'''Registro 9999. Encerramento do arquivo digital.'''
+'''Encerramento do arquivo digital'''
 class Registro9999(Registro):
 
     def __init__(self):
@@ -113,6 +112,4 @@ class Registro9999(Registro):
             self.QTD_LIN,
             ))
         return linha + super(Registro9999, self).gerar_linha()
-
-
 

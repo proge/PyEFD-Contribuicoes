@@ -132,8 +132,8 @@ class Registro(object):
         return self.fix_linha(self.gerar_linha()) != self.fix_linha(o.gerar_linha())
 
 '''
-Classe abstrata para Registros X001 do layout EFD-PIS/COFINS.
-Representa a abertura do bloco X, sendo X igual a 0, A, C, D, F, M, 1 ou 9.
+Classe para Registros X001 do layout EFD-PIS/COFINS. Representa a abertura do 
+bloco X, sendo X igual a 0, A, C, D, F, M, P, 1 ou 9.
 '''
 class RegistroX001(Registro):
 

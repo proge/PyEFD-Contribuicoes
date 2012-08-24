@@ -25,7 +25,7 @@ from Registro import RegistroX001, Registro
 from RegistroX990 import RegistroX990
 from util import Ocorrencia, Obrigatoriedade
 
-'''Registro F001. Abertura do bloco F.'''
+'''Abertura do bloco F'''
 class RegistroF001(RegistroX001):
 
     def __init__(self):
@@ -42,7 +42,7 @@ class RegistroF001(RegistroX001):
         return linha + super(RegistroF001, self).gerar_linha()
 
 
-'''Registro F010. Identificacao do estabelecimento.'''
+'''Identificação do estabelecimento'''
 class RegistroF010(Registro):
 
     def __init__(self):
@@ -59,10 +59,7 @@ class RegistroF010(Registro):
         return linha + super(RegistroF010, self).gerar_linha()
 
 
-'''
-Registro F100. Demais documentos e operacoes geradoras de contribuicao e 
-creditos.
-'''
+'''Demais documentos e operações geradoras de contribuição e créditos.'''
 class RegistroF100(Registro):
 
     def __init__(self):
@@ -116,7 +113,7 @@ class RegistroF100(Registro):
         return linha + super(RegistroF100, self).gerar_linha()
 
 
-'''Registro F111. Processo referenciado.'''
+'''Processo referenciado'''
 class RegistroF111(Registro):
 
     def __init__(self):
@@ -139,9 +136,8 @@ class RegistroF111(Registro):
 
 
 '''
-Registro F120. 
-Bens incorporados ao ativo imobilizado - operacoes geradoras de creditos
-com base nos encargos de depreciacao e amortizacao.
+Bens incorporados ao ativo imobilizado - operações geradoras de créditos com
+base nos encargos de depreciação e amortização.
 '''
 class RegistroF120(Registro):
 
@@ -194,7 +190,7 @@ class RegistroF120(Registro):
         return linha + super(RegistroF120, self).gerar_linha()
 
 
-'''Registro F129. Processo referenciado.'''
+'''Processo referenciado.'''
 class RegistroF129(Registro):
 
     def __init__(self):
@@ -217,9 +213,8 @@ class RegistroF129(Registro):
 
 
 '''
-Registro F130. 
-Bens incorporados ao ativo imobilizado - operacoes geradoras de creditos
-com base no valor de aquisicao/contribuicao.
+Bens incorporados ao ativo imobilizado - operações geradoras de créditos com
+base no valor de aquisição/contribuição.
 '''
 class RegistroF130(Registro):
 
@@ -278,7 +273,7 @@ class RegistroF130(Registro):
         return linha + super(RegistroF130, self).gerar_linha()
 
 
-'''Registro F139. Processo referenciado.'''
+'''Processo referenciado'''
 class RegistroF139(Registro):
 
     def __init__(self):
@@ -300,7 +295,7 @@ class RegistroF139(Registro):
         return linha + super(RegistroF139, self).gerar_linha()
 
 
-'''Registro F150. Credito presumido sobre estoque de abertura.'''
+'''Crédito presumido sobre estoque de abertura'''
 class RegistroF150(Registro):
 
     def __init__(self):
@@ -344,9 +339,7 @@ class RegistroF150(Registro):
         return linha + super(RegistroF150, self).gerar_linha()
 
 
-'''
-Registro F200. Operacoes da atividade imobiliaria - Unidade imobiliaria vendida.
-'''
+'''Operações da atividade imobiliária - Unidade imobiliária vendida'''
 class RegistroF200(Registro):
 
     def __init__(self):
@@ -407,9 +400,9 @@ class RegistroF200(Registro):
 
 
 '''
-Registro F205. 
-Operacoes da atividade imobiliaria - Custo incorrido da unidade imobiliaria.
+Operações da atividade imobiliária - Custo incorrido da unidade imobiliária
 
+FIXME:
 Obs.: no layout, faltam os campos de no. 14 e 15. Como deve ficar
       o formato correto do arquivo ?
 '''
@@ -469,10 +462,10 @@ class RegistroF205(Registro):
 
 
 '''
-Registro F210. 
-Operacoes da atividade imobiliaria - Custo orcado da unidade imobiliaria
+Operações da atividade imobiliária - Custo orcado da unidade imobiliária
 vendida.
 
+FIXME:
 Obs.: no layout, faltam os campos de no. 1 a 3. Como deve ficar
       o formato correto do arquivo ?
 '''
@@ -513,7 +506,7 @@ class RegistroF210(Registro):
         return linha + super(RegistroF210, self).gerar_linha()
 
 
-'''Registro F211. Processo referenciado.'''
+'''Processo referenciado'''
 class RegistroF211(Registro):
 
     def __init__(self):
@@ -876,7 +869,7 @@ class RegistroF569(Registro):
         return linha + super(RegistroF569, self).gerar_linha()
 
 
-'''Registro F600. Contribuicao retida na fonte.'''
+'''Contribuição retida na fonte'''
 class RegistroF600(Registro):
 
     def __init__(self):
@@ -912,7 +905,7 @@ class RegistroF600(Registro):
         return linha + super(RegistroF600, self).gerar_linha()
 
 
-'''Registro F700. Deducoes diversas.'''
+'''Deduções diversas'''
 class RegistroF700(Registro):
 
     def __init__(self):
@@ -938,7 +931,7 @@ class RegistroF700(Registro):
         return linha + super(RegistroF700, self).gerar_linha()
 
 
-'''Registro F800. Identificacao do estabelecimento.'''
+'''Identificação do estabelecimento'''
 class RegistroF800(Registro):
 
     def __init__(self):
@@ -970,7 +963,7 @@ class RegistroF800(Registro):
         return linha + super(RegistroF800, self).gerar_linha()
 
 
-'''Registro F990. Encerramento do bloco F.'''
+'''Encerramento do bloco F'''
 class RegistroF990(RegistroX990):
 
     def __init__(self):
