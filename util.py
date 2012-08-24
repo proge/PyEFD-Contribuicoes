@@ -22,26 +22,19 @@
 ##############################################################################
 
 '''
-<p>Indica a <strong>obrigatoriedade</strong> do Registro.</p>
+Indica a obrigatoriedade do Registro.
 
-<p><strong>O</strong> = O registro sempre e obrigatorio.</p>
+O - O registro sempre é obrigatório.
 
-<p><strong>OC</strong> = O registro e obrigatorio, se houver informacao 
-                         a ser prestada.
+OC - O registro é obrigatório, se houver informação a ser prestada.
+    Ex.: Registro C100 só deverá ser apresentado se houver movimentação ou
+    operações utilizando os documentos de códigos 01, 1B, 04 ou 55.
 
-        Ex.: Registro C100 so devera ser apresentado se houver 
-             movimentacao ou operacoes utilizando os documentos de 
-             codigos 01, 1B, 04 ou 55.</p>
+O_SE - O(...) - O registro é obrigatório se atentida a condição.
+    Ex.: Registro C191 O (Se existir C190) O registro é obrigatório sempre que
+    houver o registro C190.
 
-<p><strong>O_SE</strong> = O(...) = O registro e obrigatorio se atentida 
-                                    a condicao.
-
-                   Ex.: Registro C191 O(Se existir C190) O registro e
-                        obrigatorio sempre que houver o registro C190.
-
-<p><strong>N</strong>= O registro nao deve ser informado. 
-
-       Ex.: Registro C490 se for informado o Registro C400.</p>
+N - O registro não precisa ser informado. 
 '''
 class Obrigatoriedade:
     O = 'O'
@@ -51,18 +44,12 @@ class Obrigatoriedade:
 
 
 '''
-<p>Indica a <strong>ocorrencia</strong> do Registro.</p>
+Indica a ocorrência do Registro.
 
-<p><strong>UM</strong> = um por arquivo.</p>
-
-<p><strong>VARIOS</strong> = varios por arquivo.</p>
-
-<p><strong>UM_PARA_UM</strong> = devera haver um unico registro filho
-                                 para respectivo registro pai.</p>
-
-<p><strong>UM_PARA_MUITOS</strong> = pode haver varios registros filhos
-                                     para respectivo registro pai.</p>
-
+UM - um por arquivo
+VARIOS - vários por arquivo
+UM_PARA_UM - deverá haver um único registro filho para respectivo registro pai
+UM_PARA_MUITOS - pode haver vários registros filhos para respectivo registro pai
 '''
 class Ocorrencia:
     UM = 'UM'
