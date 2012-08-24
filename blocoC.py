@@ -1377,6 +1377,301 @@ class RegistroC609(Registro):
         return linha + super(RegistroC609, self).gerar_linha()
 
 
+'''Cupom Fiscal Eletrônico (Código 59)'''
+class RegistroC800(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "C010"
+        self.REG = "C800"
+        self.COD_MOD = ''
+        self.COD_SIT = ''
+        self.NUM_CFE = ''
+        self.DT_DOC = ''
+        self.VL_CFE = ''
+        self.VL_PIS = ''
+        self.VL_COFINS = ''
+        self.CNPJ_CPF = ''
+        self.NR_SAT = ''
+        self.CHV_CFE = ''
+        self.VL_DESC = ''
+        self.VL_MERC = ''
+        self.VL_OUT_DA = ''
+        self.VL_ICMS = ''
+        self.VL_PIS_ST = ''
+        self.VL_COFINS_ST = ''
+        self.nivel = 3
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.COD_MOD,
+            self.COD_SIT,
+            self.NUM_CFE,
+            self.DT_DOC,
+            self.VL_CFE,
+            self.VL_PIS,
+            self.VL_COFINS,
+            self.CNPJ_CPF,
+            self.NR_SAT,
+            self.CHV_CFE,
+            self.VL_DESC,
+            self.VL_MERC,
+            self.VL_OUT_DA,
+            self.VL_ICMS,
+            self.VL_PIS_ST,
+            self.VL_COFINS_ST,
+            ))
+        return linha + super(RegistroC800, self).gerar_linha()
+
+
+'''Detalhamento do Cupom Fiscal Eletrônico (Código 59) - PIS/PASEP e  COFINS'''
+class RegistroC810(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "C800"
+        self.REG = "C810"
+        self.CFOP = ''
+        self.VL_ITEM = ''
+        self.COD_ITEM = ''
+        self.CST_PIS = ''
+        self.VL_BC_PIS = ''
+        self.ALIQ_PIS = ''
+        self.VL_PIS = ''
+        self.CST_COFINS = ''
+        self.VL_BC_COFINS = ''
+        self.ALIQ_COFINS = ''
+        self.VL_COFINS = ''
+        self.COD_CTA = ''
+        self.nivel = 4
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.CFOP,
+            self.VL_ITEM,
+            self.COD_ITEM,
+            self.CST_PIS,
+            self.VL_BC_PIS,
+            self.ALIQ_PIS,
+            self.VL_PIS,
+            self.CST_COFINS,
+            self.VL_BC_COFINS,
+            self.ALIQ_COFINS,
+            self.VL_COFINS,
+            self.COD_CTA,
+            ))
+        return linha + super(RegistroC810, self).gerar_linha()
+
+
+'''
+Detalhamento do Cupom Fiscal Eletrônico (código 59) - PIS/PASEP e COFINS Apurado
+por Unidade de Medida de Produto
+'''
+class RegistroC820(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "C800"
+        self.REG = "C820"
+        self.CFOP = ''
+        self.VL_ITEM = ''
+        self.COD_ITEM = ''
+        self.CST_PIS = ''
+        self.QUANT_BC_PIS = ''
+        self.ALIQ_PIS_QUANT = ''
+        self.VL_PIS = ''
+        self.CST_COFINS = ''
+        self.QUANT_BC_COFINS = ''
+        self.ALIQ_COFINS_QUANT = ''
+        self.VL_COFINS = ''
+        self.COD_CTA = ''
+        self.nivel = 4
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        # se não existir C810
+        self.obrigatoriedade = Obrigatoriedade.O_SE
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.CFOP,
+            self.VL_ITEM,
+            self.COD_ITEM,
+            self.CST_PIS,
+            self.QUANT_BC_PIS,
+            self.ALIQ_PIS_QUANT,
+            self.VL_PIS,
+            self.CST_COFINS,
+            self.QUANT_BC_COFINS,
+            self.ALIQ_COFINS_QUANT,
+            self.VL_COFINS,
+            self.COD_CTA,
+            ))
+        return linha + super(RegistroC820, self).gerar_linha()
+
+
+'''Processo Referenciado'''
+class RegistroC830(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "C800"
+        self.REG = "C830"
+        self.NUM_PROC = ''
+        self.IND_PROC = ''
+        self.nivel = 4
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.NUM_PROC,
+            self.IND_PROC,
+            ))
+        return linha + super(RegistroC830, self).gerar_linha()
+
+
+'''Identificação do Equipamento SAT - CF-e'''
+class RegistroC860(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "C010"
+        self.REG = "C860"
+        self.COD_MOD = ''
+        self.NR_SAT = ''
+        self.DT_DOC = ''
+        self.DOC_INI = ''
+        self.DOC_FIM = ''
+        self.nivel = 3
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.COD_MOD,
+            self.NR_SAT,
+            self.DT_DOC,
+            self.DOC_INI,
+            self.DOC_FIM,
+            ))
+        return linha + super(RegistroC860, self).gerar_linha()
+
+
+'''Detalhamento do Cupom Fiscal Eletrônico (Código 59) - PIS/PASEP e COFINS'''
+class RegistroC870(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "C860"
+        self.REG = "C870"
+        self.CFOP = ''
+        self.VL_ITEM = ''
+        self.COD_ITEM = ''
+        self.CST_PIS = ''
+        self.VL_BC_PIS = ''
+        self.ALIQ_PIS = ''
+        self.VL_PIS = ''
+        self.CST_COFINS = ''
+        self.VL_BC_COFINS = ''
+        self.ALIQ_COFINS = ''
+        self.VL_COFINS = ''
+        self.COD_CTA = ''
+        self.nivel = 4
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.CFOP,
+            self.VL_ITEM,
+            self.COD_ITEM,
+            self.CST_PIS,
+            self.VL_BC_PIS,
+            self.ALIQ_PIS,
+            self.VL_PIS,
+            self.CST_COFINS,
+            self.VL_BC_COFINS,
+            self.ALIQ_COFINS,
+            self.VL_COFINS,
+            self.COD_CTA,
+            ))
+        return linha + super(RegistroC870, self).gerar_linha()
+
+
+'''
+Detalhamento do Cupom Fiscal Eletrônico (Código 59) - PIS/PASEP e COFINS Apurado
+por Unidade de Medida de Produto
+'''
+class RegistroC880(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "C860"
+        self.REG = "C880"
+        self.COD_ITEM = ''
+        self.CFOP = ''
+        self.VL_ITEM = ''
+        self.CST_PIS = ''
+        self.QUANT_BC_PIS = ''
+        self.ALIQ_PIS_QUANT = ''
+        self.VL_PIS = ''
+        self.CST_COFINS = ''
+        self.QUANT_BC_COFINS = ''
+        self.ALIQ_COFINS_QUANT = ''
+        self.VL_COFINS = ''
+        self.COD_CTA = ''
+        self.nivel = 4
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        # se não existir C870
+        self.obrigatoriedade = Obrigatoriedade.O_SE
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            self.COD_ITEM,
+            self.CFOP,
+            self.VL_ITEM,
+            self.CST_PIS,
+            self.QUANT_BC_PIS,
+            self.ALIQ_PIS_QUANT,
+            self.VL_PIS,
+            self.CST_COFINS,
+            self.QUANT_BC_COFINS,
+            self.ALIQ_COFINS_QUANT,
+            self.VL_COFINS,
+            self.COD_CTA,
+            ))
+        return linha + super(RegistroC880, self).gerar_linha()
+
+
+'''Processo Referenciado'''
+class RegistroC890(Registro):
+
+    def __init__(self):
+        self.REG_PAI = "C860"
+        self.REG = "C890"
+        self.NUM_PROC = ''
+        self.IND_PROC = ''
+        self.nivel = 4
+        self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
+        self.obrigatoriedade = Obrigatoriedade.OC
+        self.registros_filhos = []
+
+    def gerar_linha(self):
+        linha = self.gerar_linha_de_registros((
+            self.REG,
+            ))
+        return linha + super(RegistroC890, self).gerar_linha()
+
 
 '''Encerramento do bloco C'''
 class RegistroC990(RegistroX990):
