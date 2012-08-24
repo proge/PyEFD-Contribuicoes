@@ -266,6 +266,7 @@ class Registro0110(Registro):
         self.COD_INC_TRIB = "1"
         self.IND_APRO_CRED = "1"
         self.COD_TIPO_CONT = "1"
+        self.IND_REG_CUM = ''
         self.nivel = 2
         self.ocorrencia = Ocorrencia.UM
         self.obrigatoriedade = Obrigatoriedade.O
@@ -277,6 +278,7 @@ class Registro0110(Registro):
             self.COD_INC_TRIB,
             self.IND_APRO_CRED,
             self.COD_TIPO_CONT,
+            self.IND_REG_CUM,
             ))
         return linha + super(Registro0110, self).gerar_linha()
 

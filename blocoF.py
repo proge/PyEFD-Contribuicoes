@@ -884,6 +884,7 @@ class RegistroF600(Registro):
         self.CNPJ = ""
         self.VL_RET_PIS = ""
         self.VL_RET_COFINS = ""
+        self.IND_DEC = ''
         self.nivel = 3
         self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
         self.obrigatoriedade = Obrigatoriedade.OC
@@ -901,6 +902,7 @@ class RegistroF600(Registro):
             self.CNPJ,
             self.VL_RET_PIS,
             self.VL_RET_COFINS,
+            self.IND_DEC,
             ))
         return linha + super(RegistroF600, self).gerar_linha()
 
