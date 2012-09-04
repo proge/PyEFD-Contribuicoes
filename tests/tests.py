@@ -22,28 +22,25 @@
 ##############################################################################
 
 import sys
-sys.path.append('../')
+sys.path.append('..')
 
-from RegistroRoot import RegistroRoot
-from bloco0 import Registro0001
-from bloco0 import Registro0100
-from bloco0 import Registro0110
-from bloco0 import Registro0140
-from bloco0 import Registro0150
-from bloco0 import Registro0190
-from bloco0 import Registro0200
-from bloco0 import Registro0400
-from blocoC import RegistroC001
-from blocoC import RegistroC010
-from blocoC import RegistroC100
-from blocoC import RegistroC170
-from blocoM import RegistroM001
-from blocoM import RegistroM100
-from blocoM import RegistroM105
-from blocoM import RegistroM200
-from blocoM import RegistroM500
-from blocoM import RegistroM505
-from blocoM import RegistroM600
+from pyefd_contribuicoes.RegistroRoot import RegistroRoot
+from pyefd_contribuicoes.bloco0 import Registro0100
+from pyefd_contribuicoes.bloco0 import Registro0110
+from pyefd_contribuicoes.bloco0 import Registro0140
+from pyefd_contribuicoes.bloco0 import Registro0150
+from pyefd_contribuicoes.bloco0 import Registro0190
+from pyefd_contribuicoes.bloco0 import Registro0200
+from pyefd_contribuicoes.bloco0 import Registro0400
+from pyefd_contribuicoes.blocoC import RegistroC010
+from pyefd_contribuicoes.blocoC import RegistroC100
+from pyefd_contribuicoes.blocoC import RegistroC170
+from pyefd_contribuicoes.blocoM import RegistroM100
+from pyefd_contribuicoes.blocoM import RegistroM105
+from pyefd_contribuicoes.blocoM import RegistroM200
+from pyefd_contribuicoes.blocoM import RegistroM500
+from pyefd_contribuicoes.blocoM import RegistroM505
+from pyefd_contribuicoes.blocoM import RegistroM600
 
 '''
 Gera um arquivo EFD-PIS/Cofins de exemplo simples que pelo menos

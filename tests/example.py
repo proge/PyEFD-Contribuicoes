@@ -22,10 +22,13 @@
 #                                                                            #
 ##############################################################################
 
-from RegistroRoot import RegistroRoot
-from bloco0 import Registro0110, Registro0140
-from blocoC import RegistroC010
-from blocoM import RegistroM200, RegistroM600
+import sys
+sys.path.append('..')
+
+from pyefd_contribuicoes.RegistroRoot import RegistroRoot
+from pyefd_contribuicoes.bloco0 import Registro0110, Registro0140
+from pyefd_contribuicoes.blocoC import RegistroC010
+from pyefd_contribuicoes.blocoM import RegistroM200, RegistroM600
 
 '''
 Tutorial passo-a-passo de como utilizar este projeto para geracao do arquivo
