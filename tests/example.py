@@ -34,7 +34,7 @@ from pyefd_contribuicoes.blocoM import RegistroM200, RegistroM600
 Tutorial passo-a-passo de como utilizar este projeto para geracao do arquivo
 EFD-PIS/Cofins.
 
-Ao executar, o código desta classe ira gerar um arquivo EFD-PIS/Cofins de 
+Ao executar, o código desta classe ira gerar um arquivo EFD-PIS/Cofins de
 exemplo simples que passa no validador PVA versao 1.0.0 Beta.
 '''
 registroRoot = RegistroRoot()
@@ -51,7 +51,7 @@ registro9999 = registroRoot.registro9999
 '''
 Ao instanciar um novo RegistroRoot, os registros de nível 1, ou seja, os
 registros de abertura e encerramento de bloco tambem já são criados e
-adicionados automaticamente no registro 0000 e podem ser acessados conforme 
+adicionados automaticamente no registro 0000 e podem ser acessados conforme
 código abaixo:
 '''
 
@@ -78,8 +78,8 @@ registro1990 = registro0000.registro1990
 registro9990 = registro0000.registro9990
 
 '''
-Apartir disso, os demais registros de nivel maior ou igual a 2 devem ser criados
-e adicionados manualmente no seu respectivo registro PAI.
+Apartir disso, os demais registros de nivel maior ou igual a 2 devem ser
+criados e adicionados manualmente no seu respectivo registro PAI.
 
 Exemplo: Cria o registro 0110 (regime de apuração) e adiciona ao registro 0001
 (que é o registro PAI de 0110).
@@ -112,15 +112,14 @@ registroM200 = RegistroM200()
 registroM001.add_registro_filho(registroM200)
 
 '''
-Cria o registro M600 (consolidação da contribuicao Cofins do período) e adiciona
-ao registro M001 (que é o registro PAI de M600).
+Cria o registro M600 (consolidação da contribuicao Cofins do período) e
+adiciona ao registro M001 (que é o registro PAI de M600).
 '''
 registroM600 = RegistroM600()
 registroM001.add_registro_filho(registroM600)
 
 '''
-Depois que todos os registros de seu interesse foram adicionados, basta utilizar
-o método gerar() da classe RegistroRoot conforme código abaixo:
+Depois que todos os registros de seu interesse foram adicionados, basta
+utilizar o método gerar() da classe RegistroRoot conforme código abaixo:
 '''
 registroRoot.gerar("teste_efd_pis_cofins.txt")
-

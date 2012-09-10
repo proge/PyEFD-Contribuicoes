@@ -24,11 +24,12 @@
 from util import Ocorrencia
 from Registro import Registro
 
-'''
-Classe para Registros X990 do layout EFD-PIS/COFINS. Representa o encerramento 
-do bloco X, sendo X igual a 0, A, C, D, F, M, P, 1 ou 9.
-'''
+
 class RegistroX990(Registro):
+    '''
+    Classe para Registros X990 do layout EFD-PIS/COFINS. Representa o
+    encerramento do bloco X, sendo X igual a 0, A, C, D, F, M, P, 1 ou 9.
+    '''
 
     def __init__(self):
         self.QTD_LIN = '0'

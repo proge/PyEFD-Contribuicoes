@@ -25,8 +25,9 @@ from Registro import RegistroX001, Registro
 from RegistroX990 import RegistroX990
 from util import Ocorrencia, Obrigatoriedade
 
-'''Abertura do bloco A'''
+
 class RegistroA001(RegistroX001):
+    '''Abertura do bloco A'''
 
     def __init__(self):
         RegistroX001.__init__(self)
@@ -45,9 +46,8 @@ class RegistroA001(RegistroX001):
         return linha + super(RegistroA001, self).gerar_linha()
 
 
-
-'''Identificação do estabelecimento'''
 class RegistroA010(Registro):
+    '''Identificação do estabelecimento'''
 
     def __init__(self):
         self.REG_PAI = "A001"
@@ -66,8 +66,8 @@ class RegistroA010(Registro):
         return linha + super(RegistroA010, self).gerar_linha()
 
 
-'''Documento - nota fiscal de serviço'''
 class RegistroA100(Registro):
+    '''Documento - nota fiscal de serviço'''
 
     def __init__(self):
         self.REG_PAI = "A010"
@@ -124,8 +124,8 @@ class RegistroA100(Registro):
         return linha + super(RegistroA100, self).gerar_linha()
 
 
-'''Complemento do documento - informação complementar da NF'''
 class RegistroA110(Registro):
+    '''Complemento do documento - informação complementar da NF'''
 
     def __init__(self):
         self.REG_PAI = "A100"
@@ -146,8 +146,8 @@ class RegistroA110(Registro):
         return linha + super(RegistroA110, self).gerar_linha()
 
 
-'''Processo referenciado'''
 class RegistroA111(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "A100"
@@ -168,8 +168,8 @@ class RegistroA111(Registro):
         return linha + super(RegistroA111, self).gerar_linha()
 
 
-'''Informação complementar - operações de importação'''
 class RegistroA120(Registro):
+    '''Informação complementar - operações de importação'''
 
     def __init__(self):
         self.REG_PAI = "A100"
@@ -202,8 +202,8 @@ class RegistroA120(Registro):
         return linha + super(RegistroA120, self).gerar_linha()
 
 
-'''Complemento do documento - itens do documento'''
 class RegistroA170(Registro):
+    '''Complemento do documento - itens do documento'''
 
     def __init__(self):
         self.REG_PAI = "A100"
@@ -254,8 +254,8 @@ class RegistroA170(Registro):
         return linha + super(RegistroA170, self).gerar_linha()
 
 
-'''Encerramento do bloco A'''
 class RegistroA990(RegistroX990):
+    '''Encerramento do bloco A'''
 
     def __init__(self):
         RegistroX990.__init__(self)
@@ -272,4 +272,3 @@ class RegistroA990(RegistroX990):
             self.QTD_LIN,
             ))
         return linha + super(RegistroA990, self).gerar_linha()
-

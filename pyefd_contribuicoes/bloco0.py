@@ -33,8 +33,9 @@ from blocoM import RegistroM001, RegistroM990
 from blocoP import RegistroP001, RegistroP990
 from util import Ocorrencia, Obrigatoriedade
 
-'''Abertura do bloco 0'''
+
 class Registro0001(RegistroX001):
+    '''Abertura do bloco 0'''
 
     def __init__(self):
         super(Registro0001, self).__init__()
@@ -49,8 +50,9 @@ class Registro0001(RegistroX001):
         linha = self.gerar_linha_de_registros((self.REG, self.IND_MOV))
         return linha + super(Registro0001, self).gerar_linha()
 
-'''Encerramento do Bloco 0'''
+
 class Registro0990(RegistroX990):
+    '''Encerramento do Bloco 0'''
 
     def __init__(self):
         super(Registro0990, self).__init__()
@@ -64,8 +66,9 @@ class Registro0990(RegistroX990):
         linha = self.gerar_linha_de_registros((self.REG, self.QTD_LIN))
         return linha + super(Registro0990, self).gerar_linha()
 
-'''Abertura do arquivo digital e identificação da pessoa jurídica'''
+
 class Registro0000(Registro):
+    '''Abertura do arquivo digital e identificação da pessoa jurídica'''
 
     # -- Registros de abertura e encerramento de bloco --
 
@@ -104,7 +107,6 @@ class Registro0000(Registro):
     # Bloco 9
     registro9001 = Registro.get_registro9001_static()
     registro9990 = Registro9990()
-
 
     def __init__(self):
         self.REG_PAI = "ROOT"
@@ -148,9 +150,10 @@ class Registro0000(Registro):
         return linha + super(Registro0000, self).gerar_linha()
 
     def add_registro_filho(self, registro):
-        if isinstance(registro, RegistroX001) or isinstance(registro, RegistroX990):
-            raise Exception('''Nao e permitido adicionar registros de abertura 
-                    ou encerramento no registro 0000 !\nEsses registros serao 
+        if isinstance(registro, RegistroX001) or isinstance(registro,
+                                                            RegistroX990):
+            raise Exception('''Nao e permitido adicionar registros de abertura
+                    ou encerramento no registro 0000 !\nEsses registros serao
                     criados e adicionados automaticamente !''')
 
         super(Registro0000, self).add_registro_filho(self.registro)
@@ -184,8 +187,7 @@ class Registro0000(Registro):
         super(Registro0000, self).add_registro_filho(self.registro9001)
         super(Registro0000, self).add_registro_filho(self.registro9990)
 
-
-    def atualizar_quantidade_nos_registros_de_encerramento_de_bloco(self):
+    def atualizar_qtde_registros_de_encerramento_de_bloco(self):
         # Registro0000 + Registro0001 + demais registros
         self.registro0990.QTD_LIN = \
                 str(self.registro0001.get_quantidade_total_de_registros() + 2)
@@ -213,14 +215,15 @@ class Registro0000(Registro):
                 str(self.registro9001.get_quantidade_total_de_registros() + 2)
 
 
-'''Dados do contabilista'''
 class Registro0100(Registro):
+    '''Dados do contabilista'''
 
     def __init__(self):
         self.REG_PAI = "0001"
         self.REG = "0100"
         self.NOME = "NOME DO CONTADOR"
-        self.CPF = "84898524729"; # Gerado pelo http:# www.geradorcpf.com/
+        # Gerado pelo http://www.geradorcpf.com/
+        self.CPF = "84898524729"
         self.CRC = "1SP123456/0-7"
         self.CNPJ = ""
         self.CEP = "00000000"
@@ -257,8 +260,10 @@ class Registro0100(Registro):
         return linha + super(Registro0100, self).gerar_linha()
 
 
-'''Regimes de apuração da contribuição social e de apropriação de crédito'''
 class Registro0110(Registro):
+    '''
+    Regimes de apuração da contribuição social e de apropriação de crédito
+    '''
 
     def __init__(self):
         self.REG_PAI = "0001"
@@ -283,8 +288,8 @@ class Registro0110(Registro):
         return linha + super(Registro0110, self).gerar_linha()
 
 
-'''Tabela de Receita Bruta Mensal para Fins de Rateio de Créditos Comuns'''
 class Registro0111(Registro):
+    '''Tabela de Receita Bruta Mensal para Fins de Rateio de Créditos Comuns'''
 
     def __init__(self):
         self.REG_PAI = "0110"
@@ -314,8 +319,8 @@ class Registro0111(Registro):
         return linha + super(Registro0111, self).gerar_linha()
 
 
-'''Identificação de Períodos Dispensados da Escrituração Digital'''
 class Registro0120(Registro):
+    '''Identificação de Períodos Dispensados da Escrituração Digital'''
 
     def __init__(self):
         self.REG_PAI = "0001"
@@ -337,8 +342,8 @@ class Registro0120(Registro):
         return linha + super(Registro0120, self).gerar_linha()
 
 
-'''Tabela de cadastro de estabelecimento'''
 class Registro0140(Registro):
+    '''Tabela de cadastro de estabelecimento'''
 
     def __init__(self):
         self.REG_PAI = "0001"
@@ -371,8 +376,10 @@ class Registro0140(Registro):
         return linha + super(Registro0140, self).gerar_linha()
 
 
-'''Regime de Apuração da Contribuição Previdenciária sobre a Receita Bruta'''
 class Registro0145(Registro):
+    '''
+    Regime de Apuração da Contribuição Previdenciária sobre a Receita Bruta
+    '''
 
     def __init__(self):
         self.REG_PAI = "0140"
@@ -399,8 +406,8 @@ class Registro0145(Registro):
         return linha + super(Registro0145, self).gerar_linha()
 
 
-'''Tabela de cadastro do participante'''
 class Registro0150(Registro):
+    '''Tabela de cadastro do participante'''
 
     def __init__(self):
         self.REG_PAI = "0140"
@@ -441,8 +448,8 @@ class Registro0150(Registro):
         return linha + super(Registro0150, self).gerar_linha()
 
 
-'''Identificação das unidades de medida'''
 class Registro0190(Registro):
+    '''Identificação das unidades de medida'''
 
     def __init__(self):
         self.REG_PAI = "0140"
@@ -463,8 +470,8 @@ class Registro0190(Registro):
         return linha + super(Registro0190, self).gerar_linha()
 
 
-'''Tabela de identificação do item (Produtos e Serviços)'''
 class Registro0200(Registro):
+    '''Tabela de identificação do item (Produtos e Serviços)'''
 
     def __init__(self):
         self.REG_PAI = "0140"
@@ -475,7 +482,8 @@ class Registro0200(Registro):
         self.COD_ANT_ITEM = ""
         self.UNID_INV = "UN"
         self.TIPO_ITEM = "00"
-        self.COD_NCM = "61000000" # Pelo visto, e obrigatorio conforme o TIPO_ITEM
+        # FIXME: é obrigatorio conforme o TIPO_ITEM
+        self.COD_NCM = "61000000"
         self.EX_IPI = ""
         self.COD_GEN = "61"
         self.COD_LST = ""
@@ -502,8 +510,9 @@ class Registro0200(Registro):
             ))
         return linha + super(Registro0200, self).gerar_linha()
 
-'''Alteração do item'''
+
 class Registro0205(Registro):
+    '''Alteração do item'''
 
     def __init__(self):
         self.REG_PAI = "0200"
@@ -528,8 +537,8 @@ class Registro0205(Registro):
         return linha + super(Registro0205, self).gerar_linha()
 
 
-'''Código de produto conforme tabela ANP (combustiveis)'''
 class Registro0206(Registro):
+    '''Código de produto conforme tabela ANP (combustiveis)'''
 
     def __init__(self):
         self.REG_PAI = "0200"
@@ -545,8 +554,8 @@ class Registro0206(Registro):
         return linha + super(Registro0206, self).gerar_linha()
 
 
-'''Código de grupos por marca comercial - refri (bebidas frias)'''
 class Registro0208(Registro):
+    '''Código de grupos por marca comercial - refri (bebidas frias)'''
 
     def __init__(self):
         self.REG_PAI = "0200"
@@ -569,8 +578,8 @@ class Registro0208(Registro):
         return linha + super(Registro0208, self).gerar_linha()
 
 
-'''Tabela de natureza da operação/prestação'''
 class Registro0400(Registro):
+    '''Tabela de natureza da operação/prestação'''
 
     def __init__(self):
         self.REG_PAI = "0140"
@@ -591,8 +600,8 @@ class Registro0400(Registro):
         return linha + super(Registro0400, self).gerar_linha()
 
 
-'''Tabela de informação complementar do documento fiscal'''
 class Registro0450(Registro):
+    '''Tabela de informação complementar do documento fiscal'''
 
     def __init__(self):
         self.REG_PAI = "0140"
@@ -613,8 +622,8 @@ class Registro0450(Registro):
         return linha + super(Registro0450, self).gerar_linha()
 
 
-'''Plano de contas contábeis'''
 class Registro0500(Registro):
+    '''Plano de contas contábeis'''
 
     def __init__(self):
         self.REG_PAI = "0001"
@@ -647,8 +656,8 @@ class Registro0500(Registro):
         return linha + super(Registro0500, self).gerar_linha()
 
 
-'''Centro de custos'''
 class Registro0600(Registro):
+    '''Centro de custos'''
 
     def __init__(self):
         self.REG_PAI = "0001"
@@ -669,4 +678,3 @@ class Registro0600(Registro):
             self.CCUS,
             ))
         return linha + super(Registro0600, self).gerar_linha()
-

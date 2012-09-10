@@ -25,8 +25,9 @@ from Registro import RegistroX001, Registro
 from RegistroX990 import RegistroX990
 from util import Obrigatoriedade, Ocorrencia
 
-'''Abertura do bloco C'''
+
 class RegistroC001(RegistroX001):
+    '''Abertura do bloco C'''
 
     def __init__(self):
         RegistroX001.__init__(self)
@@ -44,8 +45,9 @@ class RegistroC001(RegistroX001):
             ))
         return linha + super(RegistroC001, self).gerar_linha()
 
-'''Identificação do estabelecimento'''
+
 class RegistroC010(Registro):
+    '''Identificação do estabelecimento'''
 
     def __init__(self):
         self.REG_PAI = "C001"
@@ -66,11 +68,11 @@ class RegistroC010(Registro):
         return linha + super(RegistroC010, self).gerar_linha()
 
 
-'''
-Documento - Nota Fiscal (Código 01), Nota Fiscal Avulsa (Código 1B), 
-            Nota Fiscal de Produtor (Código 04) e NFe (Código 55).
-'''
 class RegistroC100(Registro):
+    '''
+    Documento - Nota Fiscal (Código 01), Nota Fiscal Avulsa (Código 1B),
+                Nota Fiscal de Produtor (Código 04) e NFe (Código 55).
+    '''
 
     def __init__(self):
         self.REG_PAI = "C010"
@@ -142,13 +144,14 @@ class RegistroC100(Registro):
             ))
         return linha + super(RegistroC100, self).gerar_linha()
 
-'''
-Complemento do documento - informação complementar da nota fiscal (códigos 01,
-1B, 04 e 55). Layout para este registro encontra-se no ATO COTEPE/ICMS No 9, DE
-18 DE ABRIL DE 2008 
-(http://www.fazenda.gov.br/confaz/confaz/atos/atos_cotepe/2008/ac009_08.htm)
-'''
+
 class RegistroC110(Registro):
+    '''
+    Complemento do documento - informação complementar da nota fiscal (códigos
+    01, 1B, 04 e 55). Layout para este registro encontra-se no ATO COTEPE/ICMS
+    No 9, DE 18 DE ABRIL DE 2008
+    http://www.fazenda.gov.br/confaz/confaz/atos/atos_cotepe/2008/ac009_08.htm
+    '''
 
     def __init__(self):
         self.REG_PAI = "C100"
@@ -168,8 +171,9 @@ class RegistroC110(Registro):
             ))
         return linha + super(RegistroC110, self).gerar_linha()
 
-'''Processo referenciado'''
+
 class RegistroC111(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "C100"
@@ -190,12 +194,12 @@ class RegistroC111(Registro):
         return linha + super(RegistroC111, self).gerar_linha()
 
 
-'''
-Complemento do documento - operações de importacao (código 01). Layout para
-este registro encontra-se no ATO COTEPE/ICMS No 9, DE 18 DE ABRIL DE 2008 
-(http://www.fazenda.gov.br/confaz/confaz/atos/atos_cotepe/2008/ac009_08.htm)
-'''
 class RegistroC120(Registro):
+    '''
+    Complemento do documento - operações de importacao (código 01). Layout para
+    este registro encontra-se no ATO COTEPE/ICMS No 9, DE 18 DE ABRIL DE 2008
+    http://www.fazenda.gov.br/confaz/confaz/atos/atos_cotepe/2008/ac009_08.htm
+    '''
 
     def __init__(self):
         self.REG_PAI = "C100"
@@ -222,8 +226,10 @@ class RegistroC120(Registro):
         return linha + super(RegistroC120, self).gerar_linha()
 
 
-'''Complemento do documento - Itens do documento (códigos 01, 1B, 04 e 55)'''
 class RegistroC170(Registro):
+    '''
+    Complemento do documento - Itens do documento (códigos 01, 1B, 04 e 55)
+    '''
 
     def __init__(self):
         self.REG_PAI = "C100"
@@ -312,11 +318,11 @@ class RegistroC170(Registro):
         return linha + super(RegistroC170, self).gerar_linha()
 
 
-'''
-Consolidação de notas fiscais eletrônicas emitidas pela pessoa juridica (código
-55) - operações de vendas
-'''
 class RegistroC180(Registro):
+    '''
+    Consolidação de notas fiscais eletrônicas emitidas pela pessoa juridica
+    (código 55) - operações de vendas
+    '''
 
     def __init__(self):
         self.REG_PAI = "C010"
@@ -347,8 +353,8 @@ class RegistroC180(Registro):
         return linha + super(RegistroC180, self).gerar_linha()
 
 
-'''Detalhamento da consolidação - operações de vendas - PIS/PASEP'''
 class RegistroC181(Registro):
+    '''Detalhamento da consolidação - operações de vendas - PIS/PASEP'''
 
     def __init__(self):
         self.REG_PAI = "C180"
@@ -385,8 +391,8 @@ class RegistroC181(Registro):
         return linha + super(RegistroC181, self).gerar_linha()
 
 
-'''Detalhamento da consolidação - operações de vendas - Cofins'''
 class RegistroC185(Registro):
+    '''Detalhamento da consolidação - operações de vendas - Cofins'''
 
     def __init__(self):
         self.REG_PAI = "C180"
@@ -423,8 +429,8 @@ class RegistroC185(Registro):
         return linha + super(RegistroC185, self).gerar_linha()
 
 
-'''Processo referenciado'''
 class RegistroC188(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "C180"
@@ -445,11 +451,12 @@ class RegistroC188(Registro):
         return linha + super(RegistroC188, self).gerar_linha()
 
 
-'''
-Consolidação de notas fiscais eletrônicas (código 55) - operações de aquisição
-com direito a crédito, e operações de devolução de compras e vendas
-'''
 class RegistroC190(Registro):
+    '''
+    Consolidação de notas fiscais eletrônicas (código 55) - operações de
+    aquisição com direito a crédito, e operações de devolução de compras e
+    vendas
+    '''
 
     def __init__(self):
         self.REG_PAI = "C010"
@@ -480,11 +487,11 @@ class RegistroC190(Registro):
         return linha + super(RegistroC190, self).gerar_linha()
 
 
-'''
-Detalhamento da consolidação - operações de aquisição com direito a crédito, e
-operações de devolução de compras e vendas - PIS/PASEP
-'''
 class RegistroC191(Registro):
+    '''
+    Detalhamento da consolidação - operações de aquisição com direito a
+    crédito, e operações de devolução de compras e vendas - PIS/PASEP
+    '''
 
     def __init__(self):
         self.REG_PAI = "C190"
@@ -523,11 +530,11 @@ class RegistroC191(Registro):
         return linha + super(RegistroC191, self).gerar_linha()
 
 
-'''
-Detalhamento da consolidação - operações de aquisição com direito a crédito, e
-operações de devolução de compras e vendas - Cofins
-'''
 class RegistroC195(Registro):
+    '''
+    Detalhamento da consolidação - operações de aquisição com direito a
+    crédito, e operações de devolução de compras e vendas - Cofins
+    '''
 
     def __init__(self):
         self.REG_PAI = "C190"
@@ -566,8 +573,8 @@ class RegistroC195(Registro):
         return linha + super(RegistroC195, self).gerar_linha()
 
 
-'''Processo referenciado'''
 class RegistroC198(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "C190"
@@ -588,8 +595,8 @@ class RegistroC198(Registro):
         return linha + super(RegistroC198, self).gerar_linha()
 
 
-'''Complemento do documento - operações de importacao (códigos 55)'''
 class RegistroC199(Registro):
+    '''Complemento do documento - operações de importacao (códigos 55)'''
 
     def __init__(self):
         self.REG_PAI = "C190"
@@ -616,12 +623,11 @@ class RegistroC199(Registro):
         return linha + super(RegistroC199, self).gerar_linha()
 
 
-
-'''
-Nota fiscal de venda a consumidor (código 02) - consolidação de documentos
-emitidos
-'''
 class RegistroC380(Registro):
+    '''
+    Nota fiscal de venda a consumidor (código 02) - consolidação de documentos
+    emitidos
+    '''
 
     def __init__(self):
         self.REG_PAI = "C010"
@@ -652,8 +658,8 @@ class RegistroC380(Registro):
         return linha + super(RegistroC380, self).gerar_linha()
 
 
-'''Detalhamento da consolidação - PIS/PASEP'''
 class RegistroC381(Registro):
+    '''Detalhamento da consolidação - PIS/PASEP'''
 
     def __init__(self):
         self.REG_PAI = "C380"
@@ -688,8 +694,8 @@ class RegistroC381(Registro):
         return linha + super(RegistroC381, self).gerar_linha()
 
 
-'''Detalhamento da consolidação - Cofins'''
 class RegistroC385(Registro):
+    '''Detalhamento da consolidação - Cofins'''
 
     def __init__(self):
         self.REG_PAI = "C380"
@@ -724,11 +730,11 @@ class RegistroC385(Registro):
         return linha + super(RegistroC385, self).gerar_linha()
 
 
-'''
-Notas fiscais de venda a consumidor (códigos 02, 2D, 2E e 59) - aquisições/
-entradas com crédito
-'''
 class RegistroC395(Registro):
+    '''
+    Notas fiscais de venda a consumidor (códigos 02, 2D, 2E e 59) - aquisições/
+    entradas com crédito
+    '''
 
     def __init__(self):
         self.REG_PAI = "C010"
@@ -759,10 +765,11 @@ class RegistroC395(Registro):
         return linha + super(RegistroC395, self).gerar_linha()
 
 
-'''
-Itens do documento (códigos 02, 2D, 2E e 59) - aquisições/entradas com crédito
-'''
 class RegistroC396(Registro):
+    '''
+    Itens do documento (códigos 02, 2D, 2E e 59) - aquisições/entradas com
+    crédito
+    '''
 
     def __init__(self):
         self.REG_PAI = "C395"
@@ -805,8 +812,8 @@ class RegistroC396(Registro):
         return linha + super(RegistroC396, self).gerar_linha()
 
 
-'''Equipamento ECF (códigos 02 e 2D)'''
 class RegistroC400(Registro):
+    '''Equipamento ECF (códigos 02 e 2D)'''
 
     def __init__(self):
         self.REG_PAI = "C010"
@@ -835,11 +842,11 @@ class RegistroC400(Registro):
         self.COD_MOD = valores[2]
         self.ECF_MOD = valores[3]
         self.ECF_FAB = valores[4]
-        self.ECF_CX = valores[5];
+        self.ECF_CX = valores[5]
 
 
-'''Redução Z (códigos 02 e 2D)'''
 class RegistroC405(Registro):
+    '''Redução Z (códigos 02 e 2D)'''
 
     def __init__(self):
         self.REG_PAI = "C400"
@@ -868,8 +875,10 @@ class RegistroC405(Registro):
         return linha + super(RegistroC405, self).gerar_linha()
 
 
-'''Resumo diário de documentos emitidos por ECF - PIS/PASEP (códigos 02 e 2D)'''
 class RegistroC481(Registro):
+    '''
+    Resumo diário de documentos emitidos por ECF - PIS/PASEP (códigos 02 e 2D)
+    '''
 
     def __init__(self):
         self.REG_PAI = "C405"
@@ -904,8 +913,10 @@ class RegistroC481(Registro):
         return linha + super(RegistroC481, self).gerar_linha()
 
 
-'''Resumo diário de documentos emitidos por ECF - Cofins (códigos 02 e 2D)'''
 class RegistroC485(Registro):
+    '''
+    Resumo diário de documentos emitidos por ECF - Cofins (códigos 02 e 2D)
+    '''
 
     def __init__(self):
         self.REG_PAI = "C405"
@@ -940,8 +951,8 @@ class RegistroC485(Registro):
         return linha + super(RegistroC485, self).gerar_linha()
 
 
-'''Processo referenciado'''
 class RegistroC489(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "C400"
@@ -962,8 +973,8 @@ class RegistroC489(Registro):
         return linha + super(RegistroC489, self).gerar_linha()
 
 
-'''Consolidação de documentos emitidos por ECF (códigos 02, 2D e 59)'''
 class RegistroC490(Registro):
+    '''Consolidação de documentos emitidos por ECF (códigos 02, 2D e 59)'''
 
     def __init__(self):
         self.REG_PAI = "C010"
@@ -986,12 +997,11 @@ class RegistroC490(Registro):
         return linha + super(RegistroC490, self).gerar_linha()
 
 
-
-'''
-Detalhamento da consolidação de documentos emitidos por ECF (códigos 02, 2D e
-59) - PIS/PASEP
-'''
 class RegistroC491(Registro):
+    '''
+    Detalhamento da consolidação de documentos emitidos por ECF (códigos 02, 2D
+    e 59) - PIS/PASEP
+    '''
 
     def __init__(self):
         self.REG_PAI = "C490"
@@ -1028,12 +1038,11 @@ class RegistroC491(Registro):
         return linha + super(RegistroC491, self).gerar_linha()
 
 
-
-'''
-Detalhamento da consolidação de documentos emitidos por ECF (códigos 02, 2D e
-59) - Cofins
-'''
 class RegistroC495(Registro):
+    '''
+    Detalhamento da consolidação de documentos emitidos por ECF (códigos 02, 2D
+    e 59) - Cofins
+    '''
 
     def __init__(self):
         self.REG_PAI = "C490"
@@ -1069,8 +1078,9 @@ class RegistroC495(Registro):
             ))
         return linha + super(RegistroC495, self).gerar_linha()
 
-'''Processo referenciado'''
+
 class RegistroC499(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "C490"
@@ -1091,12 +1101,13 @@ class RegistroC499(Registro):
         return linha + super(RegistroC499, self).gerar_linha()
 
 
-'''
-Nota fiscal/conta de energia elétrica (código 06), nota fiscal/conta de 
-fornecimento d'agua canalizada (código 29) e nota fiscal consumo fornecimento
-de gás (código 28) - documentos de entrada/aquisição com crédito.
-'''
 class RegistroC500(Registro):
+    '''
+    Nota fiscal/conta de energia elétrica (código 06), nota fiscal/conta de
+    fornecimento d'agua canalizada (código 29) e nota fiscal consumo
+    fornecimento de gás (código 28) - documentos de entrada/aquisição com
+    crédito.
+    '''
 
     def __init__(self):
         self.REG_PAI = "C010"
@@ -1139,9 +1150,8 @@ class RegistroC500(Registro):
         return linha + super(RegistroC500, self).gerar_linha()
 
 
-
-'''Complemento da operacao (códigos 06, 28 e 29) - PIS/PASEP'''
 class RegistroC501(Registro):
+    '''Complemento da operacao (códigos 06, 28 e 29) - PIS/PASEP'''
 
     def __init__(self):
         self.REG_PAI = "C500"
@@ -1172,8 +1182,8 @@ class RegistroC501(Registro):
         return linha + super(RegistroC501, self).gerar_linha()
 
 
-'''Complemento da operacao (códigos 06, 28 e 29) - Cofins'''
 class RegistroC505(Registro):
+    '''Complemento da operacao (códigos 06, 28 e 29) - Cofins'''
 
     def __init__(self):
         self.REG_PAI = "C500"
@@ -1204,8 +1214,8 @@ class RegistroC505(Registro):
         return linha + super(RegistroC505, self).gerar_linha()
 
 
-'''Processo referenciado'''
 class RegistroC509(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "C500"
@@ -1226,13 +1236,13 @@ class RegistroC509(Registro):
         return linha + super(RegistroC509, self).gerar_linha()
 
 
-'''
-Consolidação diária de notas fiscais/contas emitidas de energia elétrica
-(código 06), nota fiscal/conta de fornecimento d'água canalizada (código 29) e
-nota fiscal/conta de fornecimento de gás (código 28) (empresas obrigadas ou não
-ao CONVÊNIO ICMS 115/03) - documentos de saída.
-'''
 class RegistroC600(Registro):
+    '''
+    Consolidação diária de notas fiscais/contas emitidas de energia elétrica
+    (código 06), nota fiscal/conta de fornecimento d'água canalizada (código
+    29) e nota fiscal/conta de fornecimento de gás (código 28) (empresas
+    obrigadas ou não ao CONVÊNIO ICMS 115/03) - documentos de saída.
+    '''
 
     def __init__(self):
         self.REG_PAI = "C010"
@@ -1290,11 +1300,12 @@ class RegistroC600(Registro):
             ))
         return linha + super(RegistroC600, self).gerar_linha()
 
-'''
-Complemento da consolidação diária (códigos 06, 28 e 29) - documentos de saídas
-PIS/PASEP
-'''
+
 class RegistroC601(Registro):
+    '''
+    Complemento da consolidação diária (códigos 06, 28 e 29) - documentos de
+    saídas PIS/PASEP
+    '''
 
     def __init__(self):
         self.REG_PAI = "C600"
@@ -1323,11 +1334,11 @@ class RegistroC601(Registro):
         return linha + super(RegistroC601, self).gerar_linha()
 
 
-'''
-Complemento da consolidação diária (códigos 06, 28 e 29) - documentos de saídas
-Cofins
-'''
 class RegistroC605(Registro):
+    '''
+    Complemento da consolidação diária (códigos 06, 28 e 29) - documentos de
+    saídas Cofins
+    '''
 
     def __init__(self):
         self.REG_PAI = "C600"
@@ -1355,8 +1366,9 @@ class RegistroC605(Registro):
             ))
         return linha + super(RegistroC605, self).gerar_linha()
 
-'''Processo referenciado'''
+
 class RegistroC609(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "C600"
@@ -1377,8 +1389,8 @@ class RegistroC609(Registro):
         return linha + super(RegistroC609, self).gerar_linha()
 
 
-'''Cupom Fiscal Eletrônico (Código 59)'''
 class RegistroC800(Registro):
+    '''Cupom Fiscal Eletrônico (Código 59)'''
 
     def __init__(self):
         self.REG_PAI = "C010"
@@ -1427,8 +1439,10 @@ class RegistroC800(Registro):
         return linha + super(RegistroC800, self).gerar_linha()
 
 
-'''Detalhamento do Cupom Fiscal Eletrônico (Código 59) - PIS/PASEP e  COFINS'''
 class RegistroC810(Registro):
+    '''
+    Detalhamento do Cupom Fiscal Eletrônico (Código 59) - PIS/PASEP e  COFINS
+    '''
 
     def __init__(self):
         self.REG_PAI = "C800"
@@ -1469,11 +1483,11 @@ class RegistroC810(Registro):
         return linha + super(RegistroC810, self).gerar_linha()
 
 
-'''
-Detalhamento do Cupom Fiscal Eletrônico (código 59) - PIS/PASEP e COFINS Apurado
-por Unidade de Medida de Produto
-'''
 class RegistroC820(Registro):
+    '''
+    Detalhamento do Cupom Fiscal Eletrônico (código 59) - PIS/PASEP e COFINS
+    Apurado por Unidade de Medida de Produto
+    '''
 
     def __init__(self):
         self.REG_PAI = "C800"
@@ -1515,8 +1529,8 @@ class RegistroC820(Registro):
         return linha + super(RegistroC820, self).gerar_linha()
 
 
-'''Processo Referenciado'''
 class RegistroC830(Registro):
+    '''Processo Referenciado'''
 
     def __init__(self):
         self.REG_PAI = "C800"
@@ -1537,8 +1551,8 @@ class RegistroC830(Registro):
         return linha + super(RegistroC830, self).gerar_linha()
 
 
-'''Identificação do Equipamento SAT - CF-e'''
 class RegistroC860(Registro):
+    '''Identificação do Equipamento SAT - CF-e'''
 
     def __init__(self):
         self.REG_PAI = "C010"
@@ -1565,8 +1579,10 @@ class RegistroC860(Registro):
         return linha + super(RegistroC860, self).gerar_linha()
 
 
-'''Detalhamento do Cupom Fiscal Eletrônico (Código 59) - PIS/PASEP e COFINS'''
 class RegistroC870(Registro):
+    '''
+    Detalhamento do Cupom Fiscal Eletrônico (Código 59) - PIS/PASEP e COFINS
+    '''
 
     def __init__(self):
         self.REG_PAI = "C860"
@@ -1607,11 +1623,11 @@ class RegistroC870(Registro):
         return linha + super(RegistroC870, self).gerar_linha()
 
 
-'''
-Detalhamento do Cupom Fiscal Eletrônico (Código 59) - PIS/PASEP e COFINS Apurado
-por Unidade de Medida de Produto
-'''
 class RegistroC880(Registro):
+    '''
+    Detalhamento do Cupom Fiscal Eletrônico (Código 59) - PIS/PASEP e COFINS
+    Apurado por Unidade de Medida de Produto
+    '''
 
     def __init__(self):
         self.REG_PAI = "C860"
@@ -1653,8 +1669,8 @@ class RegistroC880(Registro):
         return linha + super(RegistroC880, self).gerar_linha()
 
 
-'''Processo Referenciado'''
 class RegistroC890(Registro):
+    '''Processo Referenciado'''
 
     def __init__(self):
         self.REG_PAI = "C860"
@@ -1673,8 +1689,8 @@ class RegistroC890(Registro):
         return linha + super(RegistroC890, self).gerar_linha()
 
 
-'''Encerramento do bloco C'''
 class RegistroC990(RegistroX990):
+    '''Encerramento do bloco C'''
 
     def __init__(self):
         RegistroX990.__init__(self)
@@ -1688,5 +1704,3 @@ class RegistroC990(RegistroX990):
     def gerar_linha(self):
         linha = self.gerar_linha_de_registros((self.REG, self.QTD_LIN))
         return linha + super(RegistroC990, self).gerar_linha()
-
-

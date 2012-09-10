@@ -26,21 +26,22 @@ from bloco0 import Registro0000
 from bloco9 import Registro9999
 from util import Obrigatoriedade
 
-'''
-Registro root e o registro inicial em que são armazedos os registros iniciais de
-nível 0, ou seja, os registros 0000 e 9999.
 
-Para o programador é o ponto de partida e através deste objeto é possível
-adicionar os demais registros e gerar o arquivo EFD-PIS/Cofins.
-
-Exemplo:
-
-rr = RegistroRoot()
-r0100 = Registro0100()
-rr.registro0000.registro0001.add_registro_filho(r0100)
-rr.gerar("~/arquivo.txt")
-'''
 class RegistroRoot(Registro):
+    '''
+    Registro root e o registro inicial em que são armazedos os registros
+    iniciais de nível 0, ou seja, os registros 0000 e 9999.
+
+    Para o programador é o ponto de partida e através deste objeto é possível
+    adicionar os demais registros e gerar o arquivo EFD-PIS/Cofins.
+
+    Exemplo:
+
+    rr = RegistroRoot()
+    r0100 = Registro0100()
+    rr.registro0000.registro0001.add_registro_filho(r0100)
+    rr.gerar("~/arquivo.txt")
+    '''
 
     registro0000 = Registro0000()
     registro9999 = Registro9999()
@@ -55,9 +56,10 @@ class RegistroRoot(Registro):
         super(RegistroRoot, self).add_registro_filho(self.registro9999)
 
     def gerar(self, caminho):
-        self.registro0000.atualizar_quantidade_nos_registros_de_encerramento_de_bloco()
+        self.registro0000.atualizar_qtde_registros_de_encerramento_de_bloco()
         # Atualiza quantidade total de registros
-        self.registro9999.QTD_LIN = str(self.get_quantidade_total_de_registros())
+        self.registro9999.QTD_LIN = str(
+                                    self.get_quantidade_total_de_registros())
 
         f = open(caminho, 'w')
         f.write(self.gerar_linha())
@@ -75,4 +77,5 @@ class RegistroRoot(Registro):
 
     def get_quantidade_total_de_registros(self):
         # Retorna menos um pois este registro root nao conta
-        return super(RegistroRoot, self).get_quantidade_total_de_registros() - 1
+        qtde = super(RegistroRoot, self).get_quantidade_total_de_registros()
+        return qtde - 1

@@ -21,6 +21,11 @@
 #                                                                            #
 ##############################################################################
 
+'''
+Gera um arquivo EFD-PIS/Cofins de exemplo simples que pelo menos
+passa no validador PVA versao 1.0.0 Beta.
+'''
+
 import sys
 sys.path.append('..')
 
@@ -42,10 +47,6 @@ from pyefd_contribuicoes.blocoM import RegistroM500
 from pyefd_contribuicoes.blocoM import RegistroM505
 from pyefd_contribuicoes.blocoM import RegistroM600
 
-'''
-Gera um arquivo EFD-PIS/Cofins de exemplo simples que pelo menos
-passa no validador PVA versao 1.0.0 Beta.
-'''
 
 def criar_fornecedor_teste():
     fornecedor = Registro0150()
@@ -57,7 +58,8 @@ def criar_cliente_teste():
     cliente.COD_PART = "1"
     cliente.BAIRRO = "BAIRRO"
     cliente.CNPJ = ""
-    cliente.CPF = "17898468970" # Gerado pelo http:# www.geradorcpf.com/
+    # Gerado pelo http://www.geradorcpf.com/
+    cliente.CPF = "17898468970"
     cliente.COD_MUN = "3550308"
     cliente.COD_PAIS = "01058"
     cliente.END = "RUA XXX"
@@ -116,7 +118,9 @@ registroM600 = RegistroM600()
 
 registro0001 = registro_root.registro0000.registro0001
 
-registro0001.add_registro_filho(registro0100) # Dados do contabilista
+# Dados do contabilista
+registro0001.add_registro_filho(registro0100)
+
 registro0001.add_registro_filho(registro0110)
 registro0001.add_registro_filho(registro0140)
 
@@ -158,15 +162,13 @@ registroM001.add_registro_filho(registroM600)
 # FIXME: Registro M610 e obrigatorio ?
 
 caminho_padrao = 'efd.txt'
-caminho = raw_input('Informe o caminho em que o arquivo será gerado [{}]: '.format(caminho_padrao))
+caminho = raw_input('Informe o caminho em que o arquivo será gerado [{}]: '
+                    .format(caminho_padrao))
 if caminho == '':
     camiho = caminho_padrao
 
-try :
+try:
     registro_root.gerar(caminho)
 except:
     print("Ocorreu um erro ao tentar gerar arquivo ! \n\n"
             + "Verifique o caminho informado e tente novamente.")
-
-
-

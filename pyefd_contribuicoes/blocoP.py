@@ -25,8 +25,9 @@ from Registro import Registro, RegistroX001
 from RegistroX990 import RegistroX990
 from util import Ocorrencia, Obrigatoriedade
 
-'''Abertura do bloco P'''
+
 class RegistroP001(RegistroX001):
+    '''Abertura do bloco P'''
 
     def __init__(self):
         super(RegistroP001, self).__init__()
@@ -48,8 +49,8 @@ class RegistroP001(RegistroX001):
         return linha + super(RegistroP001, self).gerar_linha()
 
 
-'''Identificação do Estabelecimento'''
 class RegistroP010(Registro):
+    '''Identificação do Estabelecimento'''
 
     def __init__(self):
         self.REG_PAI = "P001"
@@ -71,8 +72,8 @@ class RegistroP010(Registro):
         return linha + super(RegistroP010, self).gerar_linha()
 
 
-'''Contribuição Previdenciária sobre a Receita Bruta'''
 class RegistroP100(Registro):
+    '''Contribuição Previdenciária sobre a Receita Bruta'''
 
     def __init__(self):
         self.REG_PAI = "P010"
@@ -114,8 +115,10 @@ class RegistroP100(Registro):
         return linha + super(RegistroP100, self).gerar_linha()
 
 
-'''Complemento da Escrituração - Detalhamento da Apuração da Contribuição'''
 class RegistroP110(Registro):
+    '''
+    Complemento da Escrituração - Detalhamento da Apuração da Contribuição
+    '''
 
     def __init__(self):
         self.REG_PAI = "P100"
@@ -140,8 +143,8 @@ class RegistroP110(Registro):
         return linha + super(RegistroP110, self).gerar_linha()
 
 
-'''Processo Referenciado'''
 class RegistroP199(Registro):
+    '''Processo Referenciado'''
 
     def __init__(self):
         self.REG_PAI = "P100"
@@ -162,8 +165,8 @@ class RegistroP199(Registro):
         return linha + super(RegistroP199, self).gerar_linha()
 
 
-'''Consolidação da Contribuição Previdenciária sobre a Receita Bruta'''
 class RegistroP200(Registro):
+    '''Consolidação da Contribuição Previdenciária sobre a Receita Bruta'''
 
     def __init__(self):
         self.REG_PAI = "P001"
@@ -195,8 +198,8 @@ class RegistroP200(Registro):
         return linha + super(RegistroP200, self).gerar_linha()
 
 
-'''Ajuste da Contribuição Previdenciária Apurada sobre a Receita Bruta'''
 class RegistroP210(Registro):
+    '''Ajuste da Contribuição Previdenciária Apurada sobre a Receita Bruta'''
 
     def __init__(self):
         self.REG_PAI = "P200"
@@ -225,8 +228,8 @@ class RegistroP210(Registro):
         return linha + super(RegistroP210, self).gerar_linha()
 
 
-'''Encerramento do bloco P'''
 class RegistroP990(RegistroX990):
+    '''Encerramento do bloco P'''
 
     def __init__(self):
         super(RegistroP990, self).__init__()
@@ -244,4 +247,3 @@ class RegistroP990(RegistroX990):
             self.QTD_LIN,
             ))
         return linha + super(RegistroP990, self).gerar_linha()
-

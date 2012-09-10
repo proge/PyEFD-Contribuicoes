@@ -23,10 +23,9 @@
 
 from util import Ocorrencia
 
-'''
-Registro do layout EFD PIS/COFINS.
-'''
+
 class Registro(object):
+    '''Registro do layout EFD PIS/COFINS.'''
 
     registros9900 = {}
 
@@ -78,17 +77,18 @@ class Registro(object):
 
     def add_registro_filho_interno(self, registro):
         from RegistroX990 import RegistroX990
-        if isinstance(self, RegistroX001) and not isinstance(registro, RegistroX001) and not isinstance(registro, RegistroX990):
+        if isinstance(self, RegistroX001) and \
+            not isinstance(registro, (RegistroX001, RegistroX990)):
             self.IND_MOV = "0"
 
         self.registros_filhos.append(registro)
         self.criar_ou_obter_registro9900_e_atualizar_QTD_REG_BLC(registro)
 
     def get_quantidade_total_de_registros(self):
-        quantidade_total_de_registros = 1
+        total_de_registros = 1
         for registro in self.registros_filhos:
-            quantidade_total_de_registros += registro.get_quantidade_total_de_registros()
-        return quantidade_total_de_registros
+            total_de_registros += registro.get_quantidade_total_de_registros()
+        return total_de_registros
 
     def criar_ou_obter_registro9900_e_atualizar_QTD_REG_BLC(self, registro):
         reg9900 = Registro.registros9900.get(registro.REG)
@@ -102,44 +102,59 @@ class Registro(object):
         reg9900.incrementar_QTD_REG_BLC()
 
     def fix_linha(self, linha):
-        if linha.startswith("|0"): linha = "0" + linha
-        if linha.startswith("|A"): linha = "1" + linha
-        if linha.startswith("|C"): linha = "2" + linha
-        if linha.startswith("|D"): linha = "3" + linha
-        if linha.startswith("|F"): linha = "4" + linha
-        if linha.startswith("|M"): linha = "5" + linha
-        if linha.startswith("|P"): linha = "6" + linha
-        if linha.startswith("|1"): linha = "7" + linha
-        if linha.startswith("|9"): linha = "8" + linha
+        if linha.startswith("|0"):
+            linha = "0" + linha
+        if linha.startswith("|A"):
+            linha = "1" + linha
+        if linha.startswith("|C"):
+            linha = "2" + linha
+        if linha.startswith("|D"):
+            linha = "3" + linha
+        if linha.startswith("|F"):
+            linha = "4" + linha
+        if linha.startswith("|M"):
+            linha = "5" + linha
+        if linha.startswith("|P"):
+            linha = "6" + linha
+        if linha.startswith("|1"):
+            linha = "7" + linha
+        if linha.startswith("|9"):
+            linha = "8" + linha
         return linha
 
     def __eq__(self, o):
-        return self.fix_linha(self.gerar_linha()) == self.fix_linha(o.gerar_linha())
+        return self.fix_linha(self.gerar_linha()) == \
+            self.fix_linha(o.gerar_linha())
 
     def __lt__(self, o):
-        return self.fix_linha(self.gerar_linha()) < self.fix_linha(o.gerar_linha())
+        return self.fix_linha(self.gerar_linha()) < \
+            self.fix_linha(o.gerar_linha())
 
     def __gt__(self, o):
-        return self.fix_linha(self.gerar_linha()) > self.fix_linha(o.gerar_linha())
+        return self.fix_linha(self.gerar_linha()) > \
+            self.fix_linha(o.gerar_linha())
 
     def __le__(self, o):
-        return self.fix_linha(self.gerar_linha()) <= self.fix_linha(o.gerar_linha())
+        return self.fix_linha(self.gerar_linha()) <= \
+            self.fix_linha(o.gerar_linha())
 
     def __ge__(self, o):
-        return self.fix_linha(self.gerar_linha()) >= self.fix_linha(o.gerar_linha())
+        return self.fix_linha(self.gerar_linha()) >= \
+            self.fix_linha(o.gerar_linha())
 
     def __ne__(self, o):
-        return self.fix_linha(self.gerar_linha()) != self.fix_linha(o.gerar_linha())
+        return self.fix_linha(self.gerar_linha()) != \
+            self.fix_linha(o.gerar_linha())
 
-'''
-Classe para Registros X001 do layout EFD-PIS/COFINS. Representa a abertura do 
-bloco X, sendo X igual a 0, A, C, D, F, M, P, 1 ou 9.
-'''
+
 class RegistroX001(Registro):
+    '''Classe para Registros X001 do layout EFD-PIS/COFINS. Representa a
+    abertura do bloco X, sendo X igual a 0, A, C, D, F, M, P, 1 ou 9.
+    '''
 
     def __init__(self):
         '''
-        Indicador de movimento: 
+        Indicador de movimento:
         0 - Bloco com dados informados.
         1 - Bloco sem dados informados.
         '''

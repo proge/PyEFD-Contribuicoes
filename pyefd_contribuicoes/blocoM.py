@@ -22,11 +22,12 @@
 ##############################################################################
 
 from Registro import Registro, RegistroX001
-from util import *
+from util import Ocorrencia, Obrigatoriedade
 from RegistroX990 import RegistroX990
 
-'''Abertura do bloco M'''
+
 class RegistroM001(RegistroX001):
+    '''Abertura do bloco M'''
 
     def __init__(self):
         RegistroX001.__init__(self)
@@ -45,8 +46,8 @@ class RegistroM001(RegistroX001):
         return linha + super(RegistroM001, self).gerar_linha()
 
 
-'''Crédito de PIS/PASEP relativo ao período'''
 class RegistroM100(Registro):
+    '''Crédito de PIS/PASEP relativo ao período'''
 
     def __init__(self):
         self.REG_PAI = "M001"
@@ -91,8 +92,10 @@ class RegistroM100(Registro):
         return linha + super(RegistroM100, self).gerar_linha()
 
 
-'''Detalhamento da base de cálculo do crédito apurado no período PIS/PASEP'''
 class RegistroM105(Registro):
+    '''
+    Detalhamento da base de cálculo do crédito apurado no período PIS/PASEP
+    '''
 
     def __init__(self):
         self.REG_PAI = "M100"
@@ -127,8 +130,8 @@ class RegistroM105(Registro):
         return linha + super(RegistroM105, self).gerar_linha()
 
 
-'''Ajuste do crédito de PIS/PASEP apurado'''
 class RegistroM110(Registro):
+    '''Ajuste do crédito de PIS/PASEP apurado'''
 
     def __init__(self):
         self.REG_PAI = "M100"
@@ -157,8 +160,8 @@ class RegistroM110(Registro):
         return linha + super(RegistroM110, self).gerar_linha()
 
 
-'''Consolidação da contribuição para o PIS/PASEP do período'''
 class RegistroM200(Registro):
+    '''Consolidação da contribuição para o PIS/PASEP do período'''
 
     def __init__(self):
         self.REG_PAI = "M001"
@@ -199,15 +202,15 @@ class RegistroM200(Registro):
         return linha + super(RegistroM200, self).gerar_linha()
 
 
-'''
-Detalhamento da contribuição para o PIS/PASEP do período.
-
-FIXME:
-Obs.: no layout, este registro esta como obrigatório. Porem, 
-      não foi necessario preenche-lo para passar no validador.
-      Portanto, provisoriamente, está como OC.
-'''
 class RegistroM210(Registro):
+    '''
+    Detalhamento da contribuição para o PIS/PASEP do período.
+
+    FIXME:
+    Obs.: no layout, este registro esta como obrigatório. Porem,
+          não foi necessario preenche-lo para passar no validador.
+          Portanto, provisoriamente, está como OC.
+    '''
 
     def __init__(self):
         self.REG_PAI = "M200"
@@ -226,7 +229,8 @@ class RegistroM210(Registro):
         self.VL_CONT_PER = ""
         self.nivel = 3
         self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
-        self.obrigatoriedade = Obrigatoriedade.OC # no layout esta como obrigatorio
+        # no layout esta como obrigatorio
+        self.obrigatoriedade = Obrigatoriedade.OC
         self.registros_filhos = []
 
     def gerar_linha(self):
@@ -248,8 +252,8 @@ class RegistroM210(Registro):
         return linha + super(RegistroM210, self).gerar_linha()
 
 
-'''Sociedades cooperativas - composição da base de cálculo - PIS/PASEP'''
 class RegistroM211(Registro):
+    '''Sociedades cooperativas - composição da base de cálculo - PIS/PASEP'''
 
     def __init__(self):
         self.REG_PAI = "M210"
@@ -275,8 +279,8 @@ class RegistroM211(Registro):
         return linha + super(RegistroM211, self).gerar_linha()
 
 
-'''Ajustes da contribuição para o PIS/PASEP apurada'''
 class RegistroM220(Registro):
+    '''Ajustes da contribuição para o PIS/PASEP apurada'''
 
     def __init__(self):
         self.REG_PAI = "M210"
@@ -305,8 +309,8 @@ class RegistroM220(Registro):
         return linha + super(RegistroM220, self).gerar_linha()
 
 
-'''Informações adicionais de diferimento'''
 class RegistroM230(Registro):
+    '''Informações adicionais de diferimento'''
 
     def __init__(self):
         self.REG_PAI = "M210"
@@ -335,11 +339,11 @@ class RegistroM230(Registro):
         return linha + super(Registro, self).gerar_linha()
 
 
-'''
-Contribuição de PIS/PASEP diferida em períodos anteriores
-Valores a pagar no período
-'''
 class RegistroM300(Registro):
+    '''
+    Contribuição de PIS/PASEP diferida em períodos anteriores
+    Valores a pagar no período
+    '''
 
     def __init__(self):
         self.REG_PAI = "M001"
@@ -368,8 +372,8 @@ class RegistroM300(Registro):
         return linha + super(RegistroM300, self).gerar_linha()
 
 
-'''PIS/PASEP - Folha de salários'''
 class RegistroM350(Registro):
+    '''PIS/PASEP - Folha de salários'''
 
     def __init__(self):
         self.REG_PAI = "M001"
@@ -396,11 +400,11 @@ class RegistroM350(Registro):
         return linha + super(RegistroM350, self).gerar_linha()
 
 
-'''
-Receitas isentas, não alcançadas pela incidência da contribuição, sujeitas a
-alíquota zero ou de vendas com suspensão - PIS/PASEP
-'''
 class RegistroM400(Registro):
+    '''
+    Receitas isentas, não alcançadas pela incidência da contribuição, sujeitas
+    a alíquota zero ou de vendas com suspensão - PIS/PASEP
+    '''
 
     def __init__(self):
         self.REG_PAI = "M001"
@@ -425,14 +429,15 @@ class RegistroM400(Registro):
         return linha + super(RegistroM400, self).gerar_linha()
 
 
-'''
-Detalhamento das receitas isentas, não alcançadas pela incidência da
-contribuição, sujeitas a alíquota zero ou de vendas com suspensão - PIS/PASEP
-
-FIXME:
-Obs.: no layout, o campo 5 esta vazio.
-'''
 class RegistroM410(Registro):
+    '''
+    Detalhamento das receitas isentas, não alcançadas pela incidência da
+    contribuição, sujeitas a alíquota zero ou de vendas com suspensão -
+    PIS/PASEP
+
+    FIXME:
+    Obs.: no layout, o campo 5 esta vazio.
+    '''
 
     def __init__(self):
         self.REG_PAI = "M400"
@@ -443,7 +448,8 @@ class RegistroM410(Registro):
         self.DESC_COMPL = ""
         self.nivel = 3
         self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
-        self.obrigatoriedade = Obrigatoriedade.O_SE # se existir M400
+        # se existir M400
+        self.obrigatoriedade = Obrigatoriedade.O_SE
         self.registros_filhos = []
 
     def gerar_linha(self):
@@ -457,8 +463,8 @@ class RegistroM410(Registro):
         return linha + super(RegistroM410, self).gerar_linha()
 
 
-'''Crédito de COFINS relativo ao período'''
 class RegistroM500(Registro):
+    '''Crédito de COFINS relativo ao período'''
 
     def __init__(self):
         self.REG_PAI = "M001"
@@ -503,8 +509,10 @@ class RegistroM500(Registro):
         return linha + super(RegistroM500, self).gerar_linha()
 
 
-'''Detalhamento da base de cálculo do crédito apurado no período - Cofins'''
 class RegistroM505(Registro):
+    '''
+    Detalhamento da base de cálculo do crédito apurado no período - Cofins
+    '''
 
     def __init__(self):
         self.REG_PAI = "M500"
@@ -539,8 +547,8 @@ class RegistroM505(Registro):
         return linha + super(RegistroM505, self).gerar_linha()
 
 
-'''Ajustes do crédito de Cofins apurado'''
 class RegistroM510(Registro):
+    '''Ajustes do crédito de Cofins apurado'''
 
     def __init__(self):
         self.REG_PAI = "M500"
@@ -569,8 +577,8 @@ class RegistroM510(Registro):
         return linha + super(RegistroM510, self).gerar_linha()
 
 
-'''Consolidação da contribuição para a seguridade social'''
 class RegistroM600(Registro):
+    '''Consolidação da contribuição para a seguridade social'''
 
     def __init__(self):
         self.REG_PAI = "M001"
@@ -611,14 +619,14 @@ class RegistroM600(Registro):
         return linha + super(RegistroM600, self).gerar_linha()
 
 
-'''
-Detalhamento da contribuição para a seguridade social - Cofins do período.
-
-Obs.: no layout, este registro esta como obrigatorio. Porem, 
-      não foi necessario preenche-lo para passar no validador.
-      Portanto, provisoriamente, esta como OC.
-'''
 class RegistroM610(Registro):
+    '''
+    Detalhamento da contribuição para a seguridade social - Cofins do período.
+
+    Obs.: no layout, este registro esta como obrigatorio. Porem,
+          não foi necessario preenche-lo para passar no validador.
+          Portanto, provisoriamente, esta como OC.
+    '''
 
     def __init__(self):
         self.REG_PAI = "M600"
@@ -637,7 +645,8 @@ class RegistroM610(Registro):
         self.VL_CONT_PER = ""
         self.nivel = 3
         self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
-        self.obrigatoriedade = Obrigatoriedade.OC # no layout esta como obrigatorio
+        # no layout esta como obrigatorio
+        self.obrigatoriedade = Obrigatoriedade.OC
         self.registros_filhos = []
 
     def gerar_linha(self):
@@ -659,8 +668,8 @@ class RegistroM610(Registro):
         return linha + super(RegistroM610, self).gerar_linha()
 
 
-'''Sociedades cooperativas - Composição da base de cálculo - Cofins'''
 class RegistroM611(Registro):
+    '''Sociedades cooperativas - Composição da base de cálculo - Cofins'''
 
     def __init__(self):
         self.REG_PAI = "M610"
@@ -688,8 +697,8 @@ class RegistroM611(Registro):
         return linha + super(RegistroM611, self).gerar_linha()
 
 
-'''Ajustes da Cofins apurada'''
 class RegistroM620(Registro):
+    '''Ajustes da Cofins apurada'''
 
     def __init__(self):
         self.REG_PAI = "M610"
@@ -718,8 +727,8 @@ class RegistroM620(Registro):
         return linha + super(RegistroM620, self).gerar_linha()
 
 
-'''Informações adicionais de diferimento'''
 class RegistroM630(Registro):
+    '''Informações adicionais de diferimento'''
 
     def __init__(self):
         self.REG_PAI = "M610"
@@ -748,8 +757,8 @@ class RegistroM630(Registro):
         return linha + super(RegistroM630, self).gerar_linha()
 
 
-'''Cofins diferida em períodos anteriores - Valores a pagar no período'''
 class RegistroM700(Registro):
+    '''Cofins diferida em períodos anteriores - Valores a pagar no período'''
 
     def __init__(self):
         self.REG_PAI = "M001"
@@ -778,11 +787,11 @@ class RegistroM700(Registro):
         return linha + super(RegistroM700, self).gerar_linha()
 
 
-'''
-Receitas isentas, não alcançadas pela incidência da contribuição, sujeitas a
-alíquota zero ou de vendas com suspensão - Cofins
-'''
 class RegistroM800(Registro):
+    '''
+    Receitas isentas, não alcançadas pela incidência da contribuição, sujeitas
+    a alíquota zero ou de vendas com suspensão - Cofins
+    '''
 
     def __init__(self):
         self.REG_PAI = "M001"
@@ -807,14 +816,14 @@ class RegistroM800(Registro):
         return linha + super(RegistroM800, self).gerar_linha()
 
 
-'''
-Detalhamento das receitas isentas, não alcançadas pela incidência da
-contribuição, sujeitas a alíquota zero ou de vendas com suspensão - Cofins.
-
-FIXME:
-Obs.: no layout, esta faltando o campo 3 ?
-'''
 class RegistroM810(Registro):
+    '''
+    Detalhamento das receitas isentas, não alcançadas pela incidência da
+    contribuição, sujeitas a alíquota zero ou de vendas com suspensão - Cofins.
+
+    FIXME:
+    Obs.: no layout, esta faltando o campo 3 ?
+    '''
 
     def __init__(self):
         self.REG_PAI = "M800"
@@ -825,7 +834,8 @@ class RegistroM810(Registro):
         self.DESC_COMPL = ""
         self.nivel = 3
         self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
-        self.obrigatoriedade = Obrigatoriedade.O_SE # se existir M800
+        # se existir M800
+        self.obrigatoriedade = Obrigatoriedade.O_SE
         self.registros_filhos = []
 
     def gerar_linha(self):
@@ -839,8 +849,8 @@ class RegistroM810(Registro):
         return linha + super(RegistroM810, self).gerar_linha()
 
 
-'''Encerramento do bloco M'''
 class RegistroM990(RegistroX990):
+    '''Encerramento do bloco M'''
 
     def __init__(self):
         RegistroX990.__init__(self)
@@ -857,5 +867,3 @@ class RegistroM990(RegistroX990):
             self.QTD_LIN,
             ))
         return linha + super(RegistroM990, self).gerar_linha()
-
-

@@ -25,8 +25,9 @@ from Registro import RegistroX001, Registro
 from RegistroX990 import RegistroX990
 from util import Ocorrencia, Obrigatoriedade
 
-'''Abertura do bloco F'''
+
 class RegistroF001(RegistroX001):
+    '''Abertura do bloco F'''
 
     def __init__(self):
         RegistroX001.__init__(self)
@@ -42,8 +43,8 @@ class RegistroF001(RegistroX001):
         return linha + super(RegistroF001, self).gerar_linha()
 
 
-'''Identificação do estabelecimento'''
 class RegistroF010(Registro):
+    '''Identificação do estabelecimento'''
 
     def __init__(self):
         self.REG_PAI = "F001"
@@ -59,8 +60,8 @@ class RegistroF010(Registro):
         return linha + super(RegistroF010, self).gerar_linha()
 
 
-'''Demais documentos e operações geradoras de contribuição e créditos.'''
 class RegistroF100(Registro):
+    '''Demais documentos e operações geradoras de contribuição e créditos.'''
 
     def __init__(self):
         self.REG_PAI = "F010"
@@ -113,8 +114,8 @@ class RegistroF100(Registro):
         return linha + super(RegistroF100, self).gerar_linha()
 
 
-'''Processo referenciado'''
 class RegistroF111(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "F100"
@@ -135,11 +136,11 @@ class RegistroF111(Registro):
         return linha + super(RegistroF111, self).gerar_linha()
 
 
-'''
-Bens incorporados ao ativo imobilizado - operações geradoras de créditos com
-base nos encargos de depreciação e amortização.
-'''
 class RegistroF120(Registro):
+    '''
+    Bens incorporados ao ativo imobilizado - operações geradoras de créditos
+    com base nos encargos de depreciação e amortização.
+    '''
 
     def __init__(self):
         self.REG_PAI = "F010"
@@ -190,8 +191,8 @@ class RegistroF120(Registro):
         return linha + super(RegistroF120, self).gerar_linha()
 
 
-'''Processo referenciado.'''
 class RegistroF129(Registro):
+    '''Processo referenciado.'''
 
     def __init__(self):
         self.REG_PAI = "F120"
@@ -212,11 +213,11 @@ class RegistroF129(Registro):
         return linha + super(RegistroF129, self).gerar_linha()
 
 
-'''
-Bens incorporados ao ativo imobilizado - operações geradoras de créditos com
-base no valor de aquisição/contribuição.
-'''
 class RegistroF130(Registro):
+    '''
+    Bens incorporados ao ativo imobilizado - operações geradoras de créditos
+    com base no valor de aquisição/contribuição.
+    '''
 
     def __init__(self):
         self.REG_PAI = "F010"
@@ -273,8 +274,8 @@ class RegistroF130(Registro):
         return linha + super(RegistroF130, self).gerar_linha()
 
 
-'''Processo referenciado'''
 class RegistroF139(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "F130"
@@ -295,8 +296,8 @@ class RegistroF139(Registro):
         return linha + super(RegistroF139, self).gerar_linha()
 
 
-'''Crédito presumido sobre estoque de abertura'''
 class RegistroF150(Registro):
+    '''Crédito presumido sobre estoque de abertura'''
 
     def __init__(self):
         self.REG_PAI = "F010"
@@ -339,8 +340,8 @@ class RegistroF150(Registro):
         return linha + super(RegistroF150, self).gerar_linha()
 
 
-'''Operações da atividade imobiliária - Unidade imobiliária vendida'''
 class RegistroF200(Registro):
+    '''Operações da atividade imobiliária - Unidade imobiliária vendida'''
 
     def __init__(self):
         self.REG_PAI = "F010"
@@ -399,14 +400,14 @@ class RegistroF200(Registro):
         return linha + super(RegistroF200, self).gerar_linha()
 
 
-'''
-Operações da atividade imobiliária - Custo incorrido da unidade imobiliária
-
-FIXME:
-Obs.: no layout, faltam os campos de no. 14 e 15. Como deve ficar
-      o formato correto do arquivo ?
-'''
 class RegistroF205(Registro):
+    '''
+    Operações da atividade imobiliária - Custo incorrido da unidade imobiliária
+
+    FIXME:
+    Obs.: no layout, faltam os campos de no. 14 e 15. Como deve ficar
+          o formato correto do arquivo ?
+    '''
 
     def __init__(self):
         self.REG_PAI = "F200"
@@ -461,15 +462,15 @@ class RegistroF205(Registro):
         return linha + super(RegistroF205, self).gerar_linha()
 
 
-'''
-Operações da atividade imobiliária - Custo orcado da unidade imobiliária
-vendida.
-
-FIXME:
-Obs.: no layout, faltam os campos de no. 1 a 3. Como deve ficar
-      o formato correto do arquivo ?
-'''
 class RegistroF210(Registro):
+    '''
+    Operações da atividade imobiliária - Custo orcado da unidade imobiliária
+    vendida.
+
+    FIXME:
+    Obs.: no layout, faltam os campos de no. 1 a 3. Como deve ficar
+          o formato correto do arquivo ?
+    '''
 
     def __init__(self):
         self.REG_PAI = "F200"
@@ -506,8 +507,8 @@ class RegistroF210(Registro):
         return linha + super(RegistroF210, self).gerar_linha()
 
 
-'''Processo referenciado'''
 class RegistroF211(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "F200"
@@ -528,12 +529,12 @@ class RegistroF211(Registro):
         return linha + super(RegistroF211, self).gerar_linha()
 
 
-'''
-Consolidação das Operações da Pessoa Jurídica Submetida ao Regime de Tributação
-com Base no Lucro Presumido - Incidência do PIS/Pasep e da Cofins pelo Regime de
-Caixa
-'''
 class RegistroF500(Registro):
+    '''
+    Consolidação das Operações da Pessoa Jurídica Submetida ao Regime de
+    Tributação com Base no Lucro Presumido - Incidência do PIS/Pasep e da
+    Cofins pelo Regime de Caixa
+    '''
 
     def __init__(self):
         self.REG_PAI = "F010"
@@ -581,8 +582,8 @@ class RegistroF500(Registro):
         return linha + super(RegistroF500, self).gerar_linha()
 
 
-'''Processo Referenciado'''
 class RegistroF509(Registro):
+    '''Processo Referenciado'''
 
     def __init__(self):
         self.REG_PAI = "F500"
@@ -603,12 +604,13 @@ class RegistroF509(Registro):
         return linha + super(RegistroF509, self).gerar_linha()
 
 
-'''
-Consolidação das Operações da Pessoa Jurídica Submetida ao Regime de Tributação
-com Base no Lucro Presumido - Incidência do PIS/Pasep e da Cofins pelo Regime de
-Caixa (Apuração da Contribuição por Unidade de Medida de Produto)
-'''
 class RegistroF510(Registro):
+    '''
+    Consolidação das Operações da Pessoa Jurídica Submetida ao Regime de
+    Tributação com Base no Lucro Presumido - Incidência do PIS/Pasep e da
+    Cofins pelo Regime de Caixa (Apuração da Contribuição por Unidade de Medida
+    de Produto)
+    '''
 
     def __init__(self):
         self.REG_PAI = "F010"
@@ -656,8 +658,8 @@ class RegistroF510(Registro):
         return linha + super(RegistroF510, self).gerar_linha()
 
 
-'''Processo Referenciado'''
 class RegistroF519(Registro):
+    '''Processo Referenciado'''
 
     def __init__(self):
         self.REG_PAI = "F510"
@@ -678,11 +680,11 @@ class RegistroF519(Registro):
         return linha + super(RegistroF519, self).gerar_linha()
 
 
-'''
-Composição da Receita Escriturada no Período - Detalhamento da Receita Recebida
-pelo Regime de Caixa 
-'''
 class RegistroF525(Registro):
+    '''
+    Composição da Receita Escriturada no Período - Detalhamento da Receita
+    Recebida pelo Regime de Caixa
+    '''
 
     def __init__(self):
         self.REG_PAI = "F010"
@@ -719,12 +721,12 @@ class RegistroF525(Registro):
         return linha + super(RegistroF525, self).gerar_linha()
 
 
-'''
-Consolidação das Operações da Pessoa Jurídica Submetida ao Regime de Tributação
-com Base no Lucro Presumido - Incidência do PIS/Pasep e da Cofins pelo Regime de 
-Competência
-'''
 class RegistroF550(Registro):
+    '''
+    Consolidação das Operações da Pessoa Jurídica Submetida ao Regime de
+    Tributação com Base no Lucro Presumido - Incidência do PIS/Pasep e da
+    Cofins pelo Regime de Competência
+    '''
 
     def __init__(self):
         self.REG_PAI = "F010"
@@ -772,8 +774,8 @@ class RegistroF550(Registro):
         return linha + super(RegistroF550, self).gerar_linha()
 
 
-'''Processo Referenciado'''
 class RegistroF559(Registro):
+    '''Processo Referenciado'''
 
     def __init__(self):
         self.REG_PAI = "F550"
@@ -794,12 +796,13 @@ class RegistroF559(Registro):
         return linha + super(RegistroF559, self).gerar_linha()
 
 
-'''
-Consolidação das Operações da Pessoa Jurídica Submetida ao Regime de Tributação
-com Base no Lucro Presumido - Incidência do PIS/Pasep e da Cofins pelo Regime de
-Competência (Apuração da Contribuição por Unidade de Medida de Produto)
-'''
 class RegistroF560(Registro):
+    '''
+    Consolidação das Operações da Pessoa Jurídica Submetida ao Regime de
+    Tributação com Base no Lucro Presumido - Incidência do PIS/Pasep e da
+    Cofins pelo Regime de Competência (Apuração da Contribuição por Unidade de
+    Medida de Produto)
+    '''
 
     def __init__(self):
         self.REG_PAI = "F010"
@@ -847,8 +850,8 @@ class RegistroF560(Registro):
         return linha + super(RegistroF560, self).gerar_linha()
 
 
-'''Processo Referenciado'''
 class RegistroF569(Registro):
+    '''Processo Referenciado'''
 
     def __init__(self):
         self.REG_PAI = "F560"
@@ -869,8 +872,8 @@ class RegistroF569(Registro):
         return linha + super(RegistroF569, self).gerar_linha()
 
 
-'''Contribuição retida na fonte'''
 class RegistroF600(Registro):
+    '''Contribuição retida na fonte'''
 
     def __init__(self):
         self.REG_PAI = "F010"
@@ -907,8 +910,8 @@ class RegistroF600(Registro):
         return linha + super(RegistroF600, self).gerar_linha()
 
 
-'''Deduções diversas'''
 class RegistroF700(Registro):
+    '''Deduções diversas'''
 
     def __init__(self):
         self.REG_PAI = "F010"
@@ -933,8 +936,8 @@ class RegistroF700(Registro):
         return linha + super(RegistroF700, self).gerar_linha()
 
 
-'''Identificação do estabelecimento'''
 class RegistroF800(Registro):
+    '''Identificação do estabelecimento'''
 
     def __init__(self):
         self.REG_PAI = "F010"
@@ -965,8 +968,8 @@ class RegistroF800(Registro):
         return linha + super(RegistroF800, self).gerar_linha()
 
 
-'''Encerramento do bloco F'''
 class RegistroF990(RegistroX990):
+    '''Encerramento do bloco F'''
 
     def __init__(self):
         RegistroX990.__init__(self)
@@ -982,4 +985,3 @@ class RegistroF990(RegistroX990):
             self.QTD_LIN,
             ))
         return linha + super(RegistroF990, self).gerar_linha()
-

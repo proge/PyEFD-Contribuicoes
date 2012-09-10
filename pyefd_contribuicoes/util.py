@@ -21,37 +21,43 @@
 #                                                                            #
 ##############################################################################
 
-'''
-Indica a obrigatoriedade do Registro.
 
-O - O registro sempre é obrigatório.
-
-OC - O registro é obrigatório, se houver informação a ser prestada.
-    Ex.: Registro C100 só deverá ser apresentado se houver movimentação ou
-    operações utilizando os documentos de códigos 01, 1B, 04 ou 55.
-
-O_SE - O(...) - O registro é obrigatório se atentida a condição.
-    Ex.: Registro C191 O (Se existir C190) O registro é obrigatório sempre que
-    houver o registro C190.
-
-N - O registro não precisa ser informado. 
-'''
 class Obrigatoriedade:
+    '''
+    Indica a obrigatoriedade do Registro.
+
+    O - O registro sempre é obrigatório.
+
+    OC - O registro é obrigatório, se houver informação a ser prestada.
+        Ex.: Registro C100 só deverá ser apresentado se houver movimentação ou
+        operações utilizando os documentos de códigos 01, 1B, 04 ou 55.
+
+    O_SE - O(...) - O registro é obrigatório se atentida a condição.
+        Ex.: Registro C191 O (Se existir C190) O registro é obrigatório sempre
+        que houver o registro C190.
+
+    N - O registro não precisa ser informado.
+    '''
     O = 'O'
     OC = 'OC'
     O_SE = 'O_SE'
     N = 'N'
 
 
-'''
-Indica a ocorrência do Registro.
-
-UM - um por arquivo
-VARIOS - vários por arquivo
-UM_PARA_UM - deverá haver um único registro filho para respectivo registro pai
-UM_PARA_MUITOS - pode haver vários registros filhos para respectivo registro pai
-'''
 class Ocorrencia:
+    '''
+    Indica a ocorrência do Registro.
+
+    UM - um por arquivo
+
+    VARIOS - vários por arquivo
+
+    UM_PARA_UM
+    - deverá haver um único registro filho para respectivo registro pai
+
+    UM_PARA_MUITOS
+    - pode haver vários registros filhos para respectivo registro pai
+    '''
     UM = 'UM'
     VARIOS = 'VARIOS'
     UM_PARA_UM = 'UM_PARA_UM'

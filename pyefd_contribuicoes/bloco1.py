@@ -25,8 +25,9 @@ from Registro import Registro, RegistroX001
 from RegistroX990 import RegistroX990
 from util import Ocorrencia, Obrigatoriedade
 
-''' Abertura do bloco 1'''
+
 class Registro1001(RegistroX001):
+    ''' Abertura do bloco 1'''
 
     def __init__(self):
         super(Registro1001, self).__init__()
@@ -44,8 +45,9 @@ class Registro1001(RegistroX001):
             ))
         return linha + super(Registro1001, self).gerar_linha()
 
-'''Processo referenciado - Ação judicial'''
+
 class Registro1010(Registro):
+    '''Processo referenciado - Ação judicial'''
 
     def __init__(self):
         self.REG_PAI = "1001"
@@ -74,8 +76,8 @@ class Registro1010(Registro):
         return linha + super(Registro1010, self).gerar_linha()
 
 
-'''Processo referenciado - Processo administrativo'''
 class Registro1020(Registro):
+    '''Processo referenciado - Processo administrativo'''
 
     def __init__(self):
         self.REG_PAI = "1001"
@@ -98,8 +100,8 @@ class Registro1020(Registro):
         return linha + super(Registro1020, self).gerar_linha()
 
 
-'''Controle de créditos fiscais - PIS/PASEP'''
 class Registro1100(Registro):
+    '''Controle de créditos fiscais - PIS/PASEP'''
 
     def __init__(self):
         self.REG_PAI = "1001"
@@ -149,11 +151,12 @@ class Registro1100(Registro):
             ))
         return linha + super(Registro1100, self).gerar_linha()
 
-'''
-Apuração de crédito extemporâneo - Documentos e operações de periodos
-anteriores - PIS/PASEP.
-'''
+
 class Registro1101(Registro):
+    '''
+    Apuração de crédito extemporâneo - Documentos e operações de periodos
+    anteriores - PIS/PASEP.
+    '''
 
     def __init__(self):
         self.REG_PAI = "1100"
@@ -181,8 +184,8 @@ class Registro1101(Registro):
         self.CNPJ = ""
         self.nivel = 3
         self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
-        self.obrigatoriedade = Obrigatoriedade.O_SE; # se VL_CRED_EXT_APU do 
-                                                # registro 1100 > 0
+        # se VL_CRED_EXT_APU do registro 1100 > 0
+        self.obrigatoriedade = Obrigatoriedade.O_SE
         self.registros_filhos = []
 
     def gerar_linha(self):
@@ -213,11 +216,11 @@ class Registro1101(Registro):
         return linha + super(Registro1101, self).gerar_linha()
 
 
-'''
-Detalhamento do crédito extemporâneo vinculado a mais de um tipo de receita - 
-PIS/PASEP
-'''
 class Registro1102(Registro):
+    '''
+    Detalhamento do crédito extemporâneo vinculado a mais de um tipo de receita
+    - PIS/PASEP
+    '''
 
     def __init__(self):
         self.REG_PAI = "1101"
@@ -227,9 +230,8 @@ class Registro1102(Registro):
         self.VL_CRED_PIS_EXP = ""
         self.nivel = 4
         self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
-        self.obrigatoriedade = Obrigatoriedade.O_SE; # se CST_PIS do registro 1101
-                                                # for igual a 53, 54, 55, 56,
-                                                # 63, 64, 65, ou 66)
+        # se CST_PIS do registro 1101 for 53, 54, 55, 56, 63, 64, 65 ou 66
+        self.obrigatoriedade = Obrigatoriedade.O_SE
 
     def gerar_linha(self):
         linha = self.gerar_linha_de_registros((
@@ -241,8 +243,8 @@ class Registro1102(Registro):
         return linha + super(Registro1102, self).gerar_linha()
 
 
-'''Contribuição social extemporânea - PIS/PASEP'''
 class Registro1200(Registro):
+    '''Contribuição social extemporânea - PIS/PASEP'''
 
     def __init__(self):
         self.REG_PAI = "1001"
@@ -279,8 +281,8 @@ class Registro1200(Registro):
         return linha + super(Registro1200, self).gerar_linha()
 
 
-'''Detalhamento da contribuição social extemporânea - PIS/PASEP'''
 class Registro1210(Registro):
+    '''Detalhamento da contribuição social extemporânea - PIS/PASEP'''
 
     def __init__(self):
         self.REG_PAI = "1200"
@@ -297,7 +299,8 @@ class Registro1210(Registro):
         self.DESC_COMPL = ""
         self.nivel = 3
         self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
-        self.obrigatoriedade = Obrigatoriedade.O_SE; # se existir registro 1200
+        # se existir registro 1200
+        self.obrigatoriedade = Obrigatoriedade.O_SE
         self.registros_filhos = []
 
     def gerar_linha(self):
@@ -317,10 +320,11 @@ class Registro1210(Registro):
         return linha + super(Registro1210, self).gerar_linha()
 
 
-'''
-Demonstração do crédito a descontar da contribuição extemporânea - PIS/PASEP
-'''
 class Registro1220(Registro):
+    '''
+    Demonstração do crédito a descontar da contribuição extemporânea -
+    PIS/PASEP
+    '''
 
     def __init__(self):
         self.REG_PAI = "1200"
@@ -345,8 +349,8 @@ class Registro1220(Registro):
         return linha + super(Registro1220, self).gerar_linha()
 
 
-'''Controle dos valores retidos na fonte - PIS/PASEP'''
 class Registro1300(Registro):
+    '''Controle dos valores retidos na fonte - PIS/PASEP'''
 
     def __init__(self):
         self.REG_PAI = "1001"
@@ -377,8 +381,8 @@ class Registro1300(Registro):
         return linha + super(Registro1300, self).gerar_linha()
 
 
-'''Controle de créditos fiscais - Cofins'''
 class Registro1500(Registro):
+    '''Controle de créditos fiscais - Cofins'''
 
     def __init__(self):
         self.REG_PAI = "1001"
@@ -429,11 +433,11 @@ class Registro1500(Registro):
         return linha + super(Registro1500, self).gerar_linha()
 
 
-'''
-Apuração de crédito extemporâneo - Documentos e operações de periodos anteriores
-Cofins
-'''
 class Registro1501(Registro):
+    '''
+    Apuração de crédito extemporâneo - Documentos e operações de periodos
+    anteriores Cofins
+    '''
 
     def __init__(self):
         self.REG_PAI = "1500"
@@ -461,8 +465,8 @@ class Registro1501(Registro):
         self.CNPJ = ""
         self.nivel = 3
         self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
-        self.obrigatoriedade = Obrigatoriedade.O_SE; # se VL_CRED_EXT_APU do
-                                                # registro 1500 > 0
+        # se VL_CRED_EXT_APU do registro 1500 > 0
+        self.obrigatoriedade = Obrigatoriedade.O_SE
         self.registros_filhos = []
 
     def gerar_linha(self):
@@ -493,11 +497,11 @@ class Registro1501(Registro):
         return linha + super(Registro1501, self).gerar_linha()
 
 
-'''
-Detalhamento do crédito extemporâneo vinculado a mais de um tipo de receita - 
-Cofins
-'''
 class Registro1502(Registro):
+    '''
+    Detalhamento do crédito extemporâneo vinculado a mais de um tipo de receita
+    - Cofins
+    '''
 
     def __init__(self):
         self.REG_PAI = "1501"
@@ -508,7 +512,7 @@ class Registro1502(Registro):
         self.nivel = 4
         self.ocorrencia = Ocorrencia.UM_PARA_UM
 
-        # se CST_COFINS do registro 1501 for igual a 53, 54, 55, 56, 63, 64, 65 ou 66)
+        # se CST_COFINS do registro 1501 for 53, 54, 55, 56, 63, 64, 65 ou 66
         self.obrigatoriedade = Obrigatoriedade.O_SE
 
     def gerar_linha(self):
@@ -521,8 +525,8 @@ class Registro1502(Registro):
         return linha + super(Registro1502, self).gerar_linha()
 
 
-'''Contribuição social extemporânea - Cofins'''
 class Registro1600(Registro):
+    '''Contribuição social extemporânea - Cofins'''
 
     def __init__(self):
         self.REG_PAI = "1001"
@@ -559,8 +563,8 @@ class Registro1600(Registro):
         return linha + super(Registro1600, self).gerar_linha()
 
 
-'''Detalhamento da contribuição social extemporânea - Cofins'''
 class Registro1610(Registro):
+    '''Detalhamento da contribuição social extemporânea - Cofins'''
 
     def __init__(self):
         self.REG_PAI = "1600"
@@ -577,7 +581,8 @@ class Registro1610(Registro):
         self.DESC_COMPL = ""
         self.nivel = 3
         self.ocorrencia = Ocorrencia.UM_PARA_MUITOS
-        self.obrigatoriedade = Obrigatoriedade.O_SE # se existir 1600
+        # se existir 1600
+        self.obrigatoriedade = Obrigatoriedade.O_SE
 
     def gerar_linha(self):
         linha = self.gerar_linha_de_registros((
@@ -596,10 +601,10 @@ class Registro1610(Registro):
         return linha + super(Registro1610, self).gerar_linha()
 
 
-'''
-Demonstração do crédito a descontar da contribuição extemporânea - Cofins
-'''
 class Registro1620(Registro):
+    '''
+    Demonstração do crédito a descontar da contribuição extemporânea - Cofins
+    '''
 
     def __init__(self):
         self.REG_PAI = "1600"
@@ -624,8 +629,8 @@ class Registro1620(Registro):
         return linha + super(Registro1620, self).gerar_linha()
 
 
-'''Controle dos valores retidos na fonte - Cofins'''
 class Registro1700(Registro):
+    '''Controle dos valores retidos na fonte - Cofins'''
 
     def __init__(self):
         self.REG_PAI = "1001"
@@ -656,8 +661,8 @@ class Registro1700(Registro):
         return linha + super(Registro1700, self).gerar_linha()
 
 
-'''Incorporação imobiliária - RET'''
 class Registro1800(Registro):
+    '''Incorporação imobiliária - RET'''
 
     def __init__(self):
         self.REG_PAI = "1001"
@@ -690,8 +695,8 @@ class Registro1800(Registro):
         return linha + super(Registro1800, self).gerar_linha()
 
 
-'''Processo referenciado'''
 class Registro1809(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "1800"
@@ -712,11 +717,12 @@ class Registro1809(Registro):
         return linha + super(Registro1809, self).gerar_linha()
 
 
-'''
-Consolidação dos Documentos Emitidos por Pessoa Jurídica Submetida ao Regime de 
-Tributação com Base no Lucro Presumido - Regime de Caixa ou de Competência
-'''
 class Registro1900(Registro):
+    '''
+    Consolidação dos Documentos Emitidos por Pessoa Jurídica Submetida ao
+    Regime de Tributação com Base no Lucro Presumido - Regime de Caixa ou de
+    Competência
+    '''
 
     def __init__(self):
         self.REG_PAI = "1001"
@@ -757,8 +763,8 @@ class Registro1900(Registro):
         return linha + super(Registro1900, self).gerar_linha()
 
 
-'''Encerramento do bloco 1'''
 class Registro1990(RegistroX990):
+    '''Encerramento do bloco 1'''
 
     def __init__(self):
         super(Registro1990, self).__init__()
@@ -772,4 +778,3 @@ class Registro1990(RegistroX990):
     def gerar_linha(self):
         linha = self.gerar_linha_de_registros((self.REG, self.QTD_LIN))
         return linha + super(Registro1990, self).gerar_linha()
-

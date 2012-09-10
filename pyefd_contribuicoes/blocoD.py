@@ -26,8 +26,9 @@ from RegistroX990 import RegistroX990
 from bloco9 import Registro
 from util import Ocorrencia, Obrigatoriedade
 
-'''Abertura do bloco D'''
+
 class RegistroD001(RegistroX001):
+    '''Abertura do bloco D'''
 
     def __init__(self):
         RegistroX001.__init__(self)
@@ -43,8 +44,8 @@ class RegistroD001(RegistroX001):
         return linha + super(RegistroD001, self).gerar_linha()
 
 
-'''Identificação do estabelecimento'''
 class RegistroD010(Registro):
+    '''Identificação do estabelecimento'''
 
     def __init__(self):
         self.REG_PAI = "D001"
@@ -60,11 +61,11 @@ class RegistroD010(Registro):
         return linha + super(RegistroD010, self).gerar_linha()
 
 
-'''
-Aquisição de Serviços de Transportes (Códigos 07, 08, 8B, 09, 10, 11, 26, 27 e 
-57)
-'''
 class RegistroD100(Registro):
+    '''
+    Aquisição de Serviços de Transportes (Códigos 07, 08, 8B, 09, 10, 11, 26,
+    27 e 57)
+    '''
 
     def __init__(self):
         self.REG_PAI = "D010"
@@ -125,11 +126,11 @@ class RegistroD100(Registro):
         return linha + super(RegistroD100, self).gerar_linha()
 
 
-'''
-Complemento do documento de transporte (Códigos 07, 08, 8B, 09, 10, 11, 26, 27
-e 57) - PIS/PASEP
-'''
 class RegistroD101(Registro):
+    '''
+    Complemento do documento de transporte (Códigos 07, 08, 8B, 09, 10, 11, 26,
+    27 e 57) - PIS/PASEP
+    '''
 
     def __init__(self):
         self.REG_PAI = "D100"
@@ -162,11 +163,11 @@ class RegistroD101(Registro):
         return linha + super(RegistroD101, self).gerar_linha()
 
 
-'''
-Complemento do documento de transporte (códigos 07, 08, 8B, 09, 10, 11, 26, 27
-e 57) - Cofins
-'''
 class RegistroD105(Registro):
+    '''
+    Complemento do documento de transporte (códigos 07, 08, 8B, 09, 10, 11, 26,
+    27 e 57) - Cofins
+    '''
 
     def __init__(self):
         self.REG_PAI = "D100"
@@ -199,8 +200,8 @@ class RegistroD105(Registro):
         return linha + super(RegistroD105, self).gerar_linha()
 
 
-'''Processo referenciado'''
 class RegistroD111(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "D100"
@@ -221,11 +222,11 @@ class RegistroD111(Registro):
         return linha + super(RegistroD111, self).gerar_linha()
 
 
-'''
-Resumo da Escrituração Diária - Prestação de Serviços de Transportes (Códigos 
-07, 08, 8B, 09, 10, 11, 26, 27 e 57)
-'''
 class RegistroD200(Registro):
+    '''
+    Resumo da Escrituração Diária - Prestação de Serviços de Transportes
+    (Códigos 07, 08, 8B, 09, 10, 11, 26, 27 e 57)
+    '''
 
     def __init__(self):
         self.REG_PAI = "D010"
@@ -260,8 +261,8 @@ class RegistroD200(Registro):
         return linha + super(RegistroD200, self).gerar_linha()
 
 
-'''Totalização do resumo diário - PIS/PASEP'''
 class RegistroD201(Registro):
+    '''Totalização do resumo diário - PIS/PASEP'''
 
     def __init__(self):
         self.REG_PAI = "D200"
@@ -290,8 +291,8 @@ class RegistroD201(Registro):
         return linha + super(RegistroD201, self).gerar_linha()
 
 
-'''Totalização do resumo diário - Cofins'''
 class RegistroD205(Registro):
+    '''Totalização do resumo diário - Cofins'''
 
     def __init__(self):
         self.REG_PAI = "D200"
@@ -320,8 +321,8 @@ class RegistroD205(Registro):
         return linha + super(RegistroD205, self).gerar_linha()
 
 
-'''Processo referenciado'''
 class RegistroD209(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "D200"
@@ -342,12 +343,12 @@ class RegistroD209(Registro):
         return linha + super(RegistroD209, self).gerar_linha()
 
 
-'''
-Resumo da escrituração diária - Bilhetes consolidados de passagem rodoviário
-(código 13), de passagem aquaviário (código 14), de passagem e nota de bagagem
-(código 15) e de passagem ferroviário (código 16)
-'''
 class RegistroD300(Registro):
+    '''
+    Resumo da escrituração diária - Bilhetes consolidados de passagem
+    rodoviário (código 13), de passagem aquaviário (código 14), de passagem e
+    nota de bagagem (código 15) e de passagem ferroviário (código 16)
+    '''
 
     def __init__(self):
         self.REG_PAI = "D010"
@@ -400,8 +401,8 @@ class RegistroD300(Registro):
         return linha + super(RegistroD300, self).gerar_linha()
 
 
-'''Processo referenciado'''
 class RegistroD309(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "D300"
@@ -422,10 +423,11 @@ class RegistroD309(Registro):
         return linha + super(RegistroD309, self).gerar_linha()
 
 
-'''
-Resumo diário de cupom fiscal emitido por ECF - (códigos 2E, 13, 14, 15, e 16)
-'''
 class RegistroD350(Registro):
+    '''
+    Resumo diário de cupom fiscal emitido por ECF - (códigos 2E, 13, 14, 15 e
+    16)
+    '''
 
     def __init__(self):
         self.REG_PAI = "D010"
@@ -486,8 +488,8 @@ class RegistroD350(Registro):
         return linha + super(RegistroD350, self).gerar_linha()
 
 
-'''Processo referenciado'''
 class RegistroD359(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "D350"
@@ -508,11 +510,12 @@ class RegistroD359(Registro):
         return linha + super(RegistroD359, self).gerar_linha()
 
 
-'''
-Nota fiscal de serviço de comunicação (código 21) e nota fiscal de serviço de
-telecomunicação (código 22) - documentos de aquisicao com direito a crédito.
-'''
 class RegistroD500(Registro):
+    '''
+    Nota fiscal de serviço de comunicação (código 21) e nota fiscal de serviço
+    de telecomunicação (código 22) - documentos de aquisicao com direito a
+    crédito.
+    '''
 
     def __init__(self):
         self.REG_PAI = "D010"
@@ -571,9 +574,8 @@ class RegistroD500(Registro):
         return linha + super(RegistroD500, self).gerar_linha()
 
 
-
-'''Complemento da operação (códigos 21 e 22) - PIS/PASEP'''
 class RegistroD501(Registro):
+    '''Complemento da operação (códigos 21 e 22) - PIS/PASEP'''
 
     def __init__(self):
         self.REG_PAI = "D500"
@@ -604,8 +606,8 @@ class RegistroD501(Registro):
         return linha + super(RegistroD501, self).gerar_linha()
 
 
-'''Complemento da operação (códigos 21 e 22) - Cofins'''
 class RegistroD505(Registro):
+    '''Complemento da operação (códigos 21 e 22) - Cofins'''
 
     def __init__(self):
         self.REG_PAI = "D500"
@@ -636,8 +638,8 @@ class RegistroD505(Registro):
         return linha + super(RegistroD505, self).gerar_linha()
 
 
-'''Processo referenciado'''
 class RegistroD509(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "D500"
@@ -658,11 +660,11 @@ class RegistroD509(Registro):
         return linha + super(RegistroD509, self).gerar_linha()
 
 
-'''
-Consolidação da prestação de serviços - Notas de serviço de comunicação (código
-21) e de serviço de telecomunicação (código 22)
-'''
 class RegistroD600(Registro):
+    '''
+    Consolidação da prestação de serviços - Notas de serviço de comunicação
+    (código 21) e de serviço de telecomunicação (código 22)
+    '''
 
     def __init__(self):
         self.REG_PAI = "D010"
@@ -715,11 +717,11 @@ class RegistroD600(Registro):
         return linha + super(RegistroD600, self).gerar_linha()
 
 
-'''
-Complemento da consolidação da prestação de serviços (códigos 21 e 22)
-PIS/PASEP
-'''
 class RegistroD601(Registro):
+    '''
+    Complemento da consolidação da prestação de serviços (códigos 21 e 22)
+    PIS/PASEP
+    '''
 
     def __init__(self):
         self.REG_PAI = "D600"
@@ -752,10 +754,11 @@ class RegistroD601(Registro):
         return linha + super(RegistroD601, self).gerar_linha()
 
 
-'''
-Complemento da consolidação da prestação de serviços (códigos 21 e 22) - Cofins
-'''
 class RegistroD605(Registro):
+    '''
+    Complemento da consolidação da prestação de serviços (códigos 21 e 22) -
+    Cofins
+    '''
 
     def __init__(self):
         self.REG_PAI = "D600"
@@ -788,8 +791,8 @@ class RegistroD605(Registro):
         return linha + super(RegistroD605, self).gerar_linha()
 
 
-'''Processo referenciado'''
 class RegistroD609(Registro):
+    '''Processo referenciado'''
 
     def __init__(self):
         self.REG_PAI = "D600"
@@ -810,8 +813,8 @@ class RegistroD609(Registro):
         return linha + super(RegistroD609, self).gerar_linha()
 
 
-'''Encerramento do bloco D'''
 class RegistroD990(RegistroX990):
+    '''Encerramento do bloco D'''
 
     def __init__(self):
         RegistroX990.__init__(self)
@@ -825,4 +828,3 @@ class RegistroD990(RegistroX990):
     def gerar_linha(self):
         linha = self.gerar_linha_de_registros((self.REG, self.QTD_LIN))
         return linha + super(RegistroD990, self).gerar_linha()
-
